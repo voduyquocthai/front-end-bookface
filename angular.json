@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-bookface"
+    }
+  },
+  "defaultProject": "front-end-bookface",
+  "cli": {
+    "analytics": false
+  }
 }
