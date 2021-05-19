@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {UpdateProfileComponent} from './user/update-profile/update-profile.component';
+import {UserProfileComponent} from './user/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'users/update-profile/:id',
     component: UpdateProfileComponent
+  },
+  {
+    path: 'users/user-profile/:id',
+    component: UserProfileComponent
   }
 ];
 
