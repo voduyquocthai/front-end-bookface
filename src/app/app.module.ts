@@ -18,6 +18,7 @@ import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {ToastrModule} from 'ngx-toastr';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
@@ -31,7 +32,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
     CreatePostComponent,
     SideBarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
