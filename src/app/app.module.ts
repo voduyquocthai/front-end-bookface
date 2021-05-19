@@ -8,19 +8,24 @@ import { HeaderComponent } from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpClientModule,
   ],
   providers: [],
