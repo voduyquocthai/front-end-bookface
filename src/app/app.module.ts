@@ -12,7 +12,9 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {SideBarComponent} from './shared/side-bar/side-bar.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
@@ -26,6 +28,8 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     AppComponent,
     HomeComponent,
     HeaderComponent,
+    SideBarComponent,
+    CreatePostComponent,
     SideBarComponent,
     LoginComponent,
     SignupComponent,
@@ -42,6 +46,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     ToastrModule.forRoot(),
@@ -49,5 +54,4 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
