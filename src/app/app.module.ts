@@ -21,6 +21,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     ToastrModule.forRoot(),
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
