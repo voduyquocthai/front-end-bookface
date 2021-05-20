@@ -14,13 +14,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
-import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import { MyPostComponent } from './post/my-post/my-post.component';
+import { EditPostComponent } from './post/edit-post/edit-post.component';
+import { FriendPostComponent } from './post/friend-post/friend-post.component';
+import { GuestPostComponent } from './post/guest-post/guest-post.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -35,7 +39,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SideBarComponent,
     LoginComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MyPostComponent,
+    EditPostComponent,
+    FriendPostComponent,
+    GuestPostComponent
   ],
   imports: [
     BrowserModule,

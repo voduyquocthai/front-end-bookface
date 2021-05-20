@@ -5768,8 +5768,6 @@ textarea.form-control-lg {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
-  width: 600px !important;
-  margin-right: 1000px !important;
 }
 
 .card-title {
@@ -15482,7 +15480,7 @@ select.sort {
 
 .login-card {
   min-width: 380px;
-  max-width: 400px;
+  max-width: 800px;
 }
 
 .coming-soon-card {
