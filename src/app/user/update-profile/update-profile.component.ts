@@ -27,7 +27,7 @@ export class UpdateProfileComponent implements OnInit {
     password: new FormControl(),
     email: new FormControl(),
   });
-  user: User;
+  user: User = {};
   id = -1;
 
   constructor(private userService: UsersService,
