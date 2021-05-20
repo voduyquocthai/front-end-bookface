@@ -37,7 +37,6 @@ export class UpdateProfileComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.getUser(this.id);
     });
-    this.getUser(1);
   }
 
   ngOnInit(): void {
@@ -67,10 +66,10 @@ export class UpdateProfileComponent implements OnInit {
     this.uploadService.submit();
     const userUpdate: User = this.editForm.value;
     userUpdate.avatar = this.uploadService.imgSrc;
-    this.userService.updateUserProfile(id, userUpdate).subscribe(() => {
-      alert('success');
+    this.userService.updateUserProfile(id, userUpdate).subscribe(user => {
+      this.user = user;
+      this.getUser(id);
     });
-    this.editForm.reset();
   }
 
   showPreview(event) {
