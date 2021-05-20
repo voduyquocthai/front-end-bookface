@@ -22,6 +22,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FriendComponent } from './user/friend/friend.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SideBarComponent,
     LoginComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,

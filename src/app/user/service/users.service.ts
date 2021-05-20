@@ -21,4 +21,8 @@ export class UsersService {
   updateUserProfile(id: number, userUpdate: User): Observable<User> {
     return this.http.put<User>(`${API_URL}/users/update-profile/${id}`, userUpdate);
   }
+
+  getAllFriend(id: number): Observable<User[]> {
+    return this.http.get<User[]>(`${API_URL}/users/list-friend/${id}`);
+  }
 }
