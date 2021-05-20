@@ -11,5 +11,6 @@ export interface User {
   birthDay?: string;
   password?: string;
   email?: string;
+  enabled?: boolean;
 }
 

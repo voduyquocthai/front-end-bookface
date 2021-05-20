@@ -26,6 +26,7 @@ export class UpdateProfileComponent implements OnInit {
     birthDay: new FormControl(),
     password: new FormControl(),
     email: new FormControl(),
+    enabled: new FormControl()
   });
   user: User;
   id = -1;
@@ -58,6 +59,7 @@ export class UpdateProfileComponent implements OnInit {
         birthDay: new FormControl(user.birthDay),
         password: new FormControl(user.password),
         email: new FormControl(user.email, [Validators.required, Validators.email]),
+        enabled: new FormControl(user.enabled)
       });
     });
   }
