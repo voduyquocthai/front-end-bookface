@@ -66,11 +66,13 @@ import {TokenInterceptor} from '../token-interceptor';
     NgbModule,
     BrowserAnimationsModule
   ],
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
   }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
