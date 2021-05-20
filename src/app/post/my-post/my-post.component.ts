@@ -19,7 +19,7 @@ export class MyPostComponent implements OnInit {
   }
 
   getAll(): Post[]{
-    this.postService.findPostById(this.posts).subscribe(posts => {
+    this.postService.getAllPost().subscribe(posts => {
       this.posts = posts;
     });
     return this.posts;

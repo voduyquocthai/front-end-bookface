@@ -15,6 +15,10 @@ export class PostService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getAllPost(): Observable<Post[]>{
+    return this.httpClient.get<Post[]>(API_URL + '/posts');
+  }
+
   createStatusPost(post: Post): Observable<Post> {
     return this.httpClient.post<Post>(API_URL + '/posts/create', post);
   }
@@ -23,7 +27,7 @@ export class PostService {
     return this.httpClient.put<any>(`${API_URL}/posts/update`, post);
   }
 
-  findPostById(id: number): Observable<Post> {
+  findPostById(id: Post[]): Observable<Post> {
     return this.httpClient.get<Post>(`${API_URL}/posts/find/${id}`);
   }
 
