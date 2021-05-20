@@ -1,3 +1,5 @@
+import { User } from '../user/user';
+
 export interface Post {
   postId?: number;
   description?: string;
@@ -5,5 +7,5 @@ export interface Post {
   privacy?: number ;
   likeCount?: number;
   heartCount?: number ;
-  userId?: number;
+  User?: User;
 }
