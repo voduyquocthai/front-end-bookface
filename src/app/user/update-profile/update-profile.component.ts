@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {User} from '../user';
+import {User} from '../User';
 import {UsersService} from '../service/users.service';
 import {ActivatedRoute} from '@angular/router';
 import {UploadFileService} from '../../upload/upload-file.service';
