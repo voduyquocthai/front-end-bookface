@@ -19,7 +19,7 @@ export class AuthService {
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
     username: this.getUserName()
-  }
+  };
 
   private apiServerUrl = environment.apiBaseServer;
 
@@ -67,7 +67,7 @@ export class AuthService {
         console.log(data);
       }, error => {
         throwError(error);
-      })
+      });
     this.localStorage.clear('authenticationToken');
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');

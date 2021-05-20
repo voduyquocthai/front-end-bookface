@@ -12,11 +12,16 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {SideBarComponent} from './shared/side-bar/side-bar.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,8 +31,11 @@ import {ToastrModule} from 'ngx-toastr';
     HomeComponent,
     HeaderComponent,
     SideBarComponent,
+    CreatePostComponent,
+    SideBarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -40,12 +48,14 @@ import {ToastrModule} from 'ngx-toastr';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     ToastrModule.forRoot(),
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
