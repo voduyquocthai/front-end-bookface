@@ -11,7 +11,7 @@ import {parse} from '@angular/compiler/src/render3/view/style_parser';
 })
 export class UserProfileComponent implements OnInit {
   id = -1;
-  user: User;
+  user: User = {};
 
   constructor(private userService: UsersService,
               private activatedRoute: ActivatedRoute) {

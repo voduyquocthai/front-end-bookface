@@ -1,4 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+// @ts-ignore
+import {FormControl, FormGroup} from '@angular/forms';
+import {PostService} from '../../services/post.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {Observable} from 'rxjs';
+import {finalize} from 'rxjs/operators';
+import {Post} from '../../model/post';
+import {Title} from '@angular/platform-browser';
+
+
 
 @Component({
   selector: 'app-post',
@@ -6,10 +17,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent implements OnInit {
+  post: Post = {
+    postId: null,
+    User: null,
+    createDate: null,
+    privacy: 0,
+    likeCount: 0,
+    heartCount: 0
+  };
 
-  constructor() { }
+
+  constructor(private router: Router, private postService: PostService, private titleService: Title ) {
+    this.titleService.setTitle('Thêm mới');
+  }
 
   ngOnInit(): void {
   }
 
+  createStatusPost(){
+    this.postService.createStatusPost(this.post).subscribe(() => {
+      alert('Thêm mới thành công!');
+      this.router.navigate(['/']);
+    });
+  }
+
 }
+
