@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../user';
 import {UsersService} from '../service/users.service';
 import {ActivatedRoute} from '@angular/router';
@@ -48,8 +48,8 @@ export class UpdateProfileComponent implements OnInit {
       this.editForm = new FormGroup({
         userId: new FormControl(user.userId),
         username: new FormControl(user.username),
-        firstName: new FormControl(user.firstName),
-        lastName: new FormControl(user.lastName),
+        firstName: new FormControl(user.firstName, Validators.required),
+        lastName: new FormControl(user.lastName, Validators.required),
         hobbies: new FormControl(user.hobbies),
         about: new FormControl(user.about),
         avatar: new FormControl(user.avatar),
@@ -57,7 +57,7 @@ export class UpdateProfileComponent implements OnInit {
         address: new FormControl(user.address),
         birthDay: new FormControl(user.birthDay),
         password: new FormControl(user.password),
-        email: new FormControl(user.email),
+        email: new FormControl(user.email, [Validators.required, Validators.email]),
       });
     });
   }
