@@ -1,5 +1,4 @@
-
-  <!-- navigation top for user-->
+<!-- navigation top for user-->
   <div *ngIf="isLoggedIn" class="nav-header bg-white shadow-xs border-0">
     <div class="nav-top">
       <a routerLink=""><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
@@ -48,7 +47,7 @@
         <h6 class="text-grey-500 fw-500 font-xssss lh-4">Mobile Apps UI Designer is require..</h6>
       </div>
     </div>
-    <a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i (click)="openModal('chat')" class="feather-message-square font-xl text-current"></i></a>
+    <a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i class="feather-message-square font-xl text-current"></i></a>
     <div class="p-2 text-center ms-3 position-relative dropdown-menu-icon menu-icon cursor-pointer">
       <i class="feather-settings animation-spin d-inline-block font-xl text-current"></i>
       <div class="dropdown-menu-settings switchcolor-wrap">
@@ -181,7 +180,7 @@
   <!-- navigation top -->
 
   <!-- right chat -->
-  <div class="right-chat nav-wrap mt-2 right-scroll-bar">
+  <div *ngIf="isLoggedIn" class="right-chat nav-wrap mt-2 right-scroll-bar">
     <div class="middle-sidebar-right-content bg-white shadow-xss rounded-xxl">
 
       <!-- loader wrapper -->

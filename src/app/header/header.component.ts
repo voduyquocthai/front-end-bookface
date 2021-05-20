@@ -33,18 +33,5 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  public openModal(mode: string): void {
-    const container = document.getElementById('main-container');
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    if(mode === 'chat'){
-      button.setAttribute('data-target', '#ModalChat')
-    }
-    container?.appendChild(button);
-    button.click();
-  }
 }
 
