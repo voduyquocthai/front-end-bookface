@@ -7,6 +7,7 @@ import {SignupRequestPayload} from './signup/signup-request.payload';
 import {LoginRequestPayload} from './login/login.request.payload';
 import {LoginResponse} from './login/login.response.payload';
 import { map, tap } from 'rxjs/operators';
+import {User} from '../user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthService {
 
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();
+  @Output() userId: EventEmitter<number> = new EventEmitter();
 
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
@@ -36,9 +38,10 @@ export class AuthService {
       this.localStorage.store('username', data.username);
       this.localStorage.store('refreshToken', data.refreshToken);
       this.localStorage.store('expiresAt', data.expiresAt);
-
+      this.localStorage.store('userId', data.userId);
       this.loggedIn.emit(true);
       this.username.emit(data.username);
+      this.userId.emit(data.userId);
       return true;
     }));
   }
@@ -72,10 +75,14 @@ export class AuthService {
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');
+    this.localStorage.clear('userId');
   }
 
   getUserName() {
     return this.localStorage.retrieve('username');
+  }
+  getUserId() {
+    return this.localStorage.retrieve('userId');
   }
   getRefreshToken() {
     return this.localStorage.retrieve('refreshToken');
@@ -83,6 +90,10 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return this.getJwtToken() != null;
+  }
+
+  getUserByUserName(username: string): Observable<User> {
+    return this.httpClient.get<User>(`${this.apiServerUrl}/users/${username}`)
   }
 
 }

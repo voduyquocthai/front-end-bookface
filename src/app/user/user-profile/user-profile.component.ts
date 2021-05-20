@@ -11,13 +11,15 @@ import {parse} from '@angular/compiler/src/render3/view/style_parser';
 })
 export class UserProfileComponent implements OnInit {
   id = -1;
-  user: User;
+  user: User = {};
+  listFriend: User[] = [];
 
   constructor(private userService: UsersService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       this.id = +paramMap.get('id');
       this.getUser(this.id);
+      this.getAllFriend(this.id);
     });
   }
 
@@ -27,6 +29,12 @@ export class UserProfileComponent implements OnInit {
   getUser(id: number) {
     this.userService.getUserById(id).subscribe(user => {
       this.user = user;
+    });
+  }
+
+  getAllFriend(id: number) {
+    this.userService.getAllFriend(id).subscribe(users => {
+      this.listFriend = users;
     });
   }
 }
