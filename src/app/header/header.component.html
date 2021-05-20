@@ -1,7 +1,7 @@
 <!-- navigation top for user-->
 <div *ngIf="isLoggedIn" class="nav-header bg-white shadow-xs border-0">
   <div class="nav-top">
-    <a href="default.html"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
+    <a routerLink=""><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
     <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
     <a href="default-video.html" class="mob-menu me-2"><i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
     <a href="#" class="me-2 menu-search-icon mob-menu"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
@@ -151,21 +151,29 @@
     </div>
   </div>
 
-  <a href="default-settings.html" class="p-0 ms-3 menu-icon"><img src="https://via.placeholder.com/50x50.png" alt="user" class="w40 mt--1"></a>
-
+  <div ngbDropdown class="float-right">
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button (click)="goToUserProfile()" ngbDropdownItem>Profile</button>
+      <button (click)="logout()" ngbDropdownItem>Logout</button>
+    </div>
+    <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+      <img class="account-icon" src="http://pm1.narvii.com/7673/6efc9f8d5c75f650028c0c403887fd9e5fa9ca09r1-480-480v2_00.jpg">
+      {{username}}
+    </button>
+  </div>
 </div>
 <!-- navigation top -->
 <!-- navigation top for guest-->
 <div *ngIf="!isLoggedIn" class="nav-header bg-white shadow-xs border-0">
   <div class="nav-top">
-    <a href="default.html"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
+    <a routerLink=""><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
     <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
     <a href="default-video.html" class="mob-menu me-2"><i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
     <a href="#" class="me-2 menu-search-icon mob-menu"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
     <button class="nav-menu me-0 ms-2"></button>
   </div>
-  <a href="#" class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl" data-toggle="modal" data-target="#Modallogin">Login</a>
-  <a href="#" class="header-btn d-none d-lg-block bg-primary fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl" data-toggle="modal" data-target="#Modalregister">Register</a>
+  <a routerLink="/login" class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl" data-toggle="modal" data-target="#Modallogin">Login</a>
+  <a routerLink="/sign-up" class="header-btn d-none d-lg-block bg-primary fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl" data-toggle="modal" data-target="#Modalregister">Register</a>
 
 
 </div>

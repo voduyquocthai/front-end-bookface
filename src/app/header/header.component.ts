@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean;
   username: string;
+  userId: number;
 
   constructor(private authService: AuthService, private router: Router) { }
 
