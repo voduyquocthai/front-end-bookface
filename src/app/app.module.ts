@@ -20,6 +20,10 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
 import {ToastrModule} from 'ngx-toastr';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import { MyPostComponent } from './post/my-post/my-post.component';
+import { EditPostComponent } from './post/edit-post/edit-post.component';
+import { FriendPostComponent } from './post/friend-post/friend-post.component';
+import { GuestPostComponent } from './post/guest-post/guest-post.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
     SideBarComponent,
     LoginComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MyPostComponent,
+    EditPostComponent,
+    FriendPostComponent,
+    GuestPostComponent
   ],
   imports: [
     BrowserModule,
