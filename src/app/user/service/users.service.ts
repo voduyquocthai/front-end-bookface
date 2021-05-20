@@ -21,4 +21,8 @@ export class UsersService {
   updateUserProfile(id: number, userUpdate: User): Observable<User> {
     return this.http.put<User>(`${API_URL}/users/update-profile/${id}`, userUpdate);
   }
+
+  getFriendByDoubleId(senderId: string, receiverId: number) {
+    return this.http.get(`${API_URL}/friend/${senderId}/${receiverId}`);
+  }
 }
