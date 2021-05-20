@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../User';
+import {Friend} from '../Friend';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -23,8 +24,12 @@ export class UsersService {
   }
 
   getFriendByDoubleId(senderId: string, receiverId: number) {
-    return this.http.get(`${API_URL}/friend/${senderId}/${receiverId}`);
+    return this.http.get(`${API_URL}/friend/search/${senderId}/${receiverId}`);
   }
+
+  addFriendInFriendsUser(friendShip: Friend): Observable<Friend>{
+    return this.http.post<Friend>(`${API_URL}/friend/add-waiting`,friendShip)
+  };
 
   getAllFriend(id: number): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users/list-friend/${id}`);

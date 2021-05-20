@@ -13,7 +13,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class UserProfileComponent implements OnInit {
   id = -1;
-  frienShip: Friend;
+  friendShip: Friend;
   user: User = {};
   listFriend: User[] = [];
 
@@ -31,12 +31,30 @@ export class UserProfileComponent implements OnInit {
     this.getFriendByDoubleId();
   }
 
-  getFriendByDoubleId() {
-    let senderId = null;
-    let receiverId = this.user.userId;
+    getFriendByDoubleId() {
+    let senderId = this.localStorage.retrieve('userId');
+    let receiverId = this.id;
     this.userService.getFriendByDoubleId(senderId, receiverId).subscribe(value => {
       console.log(value);
-      this.frienShip = value;
+      // this.friendShip = value;
+    })
+  }
+
+  addFriend() {
+    this.friendShip = new Friend();
+    this.friendShip = {
+      sender: {
+        userId: this.localStorage.retrieve('userId')
+      },
+      receiver: {
+        userId: this.id
+      },
+      status: false
+    }
+    console.log(this.friendShip, 'friendship')
+
+    this.userService.addFriendInFriendsUser(this.friendShip).subscribe(value => {
+      console.log(value);
     })
   }
 
@@ -51,4 +69,5 @@ export class UserProfileComponent implements OnInit {
       this.listFriend = users;
     });
   }
+
 }

@@ -5,4 +5,7 @@ export class Friend {
   sender?: User;
   receiver?: User;
   status?: boolean;
+
+  constructor() {
+  }
 }

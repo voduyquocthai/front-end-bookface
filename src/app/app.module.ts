@@ -11,7 +11,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import {LoginComponent} from './auth/login/login.component';
@@ -27,6 +27,7 @@ import { FriendPostComponent } from './post/friend-post/friend-post.component';
 import { GuestPostComponent } from './post/guest-post/guest-post.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FriendComponent } from './user/friend/friend.component';
+import {TokenInterceptor} from '../token-interceptor';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { FriendComponent } from './user/friend/friend.component';
     NgbModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
