@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {User} from '../User';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from '../user';
 import {UsersService} from '../service/users.service';
 import {ActivatedRoute} from '@angular/router';
 import {UploadFileService} from '../../upload/upload-file.service';
@@ -37,7 +37,6 @@ export class UpdateProfileComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.getUser(this.id);
     });
-    this.getUser(1);
   }
 
   ngOnInit(): void {
@@ -49,8 +48,8 @@ export class UpdateProfileComponent implements OnInit {
       this.editForm = new FormGroup({
         userId: new FormControl(user.userId),
         username: new FormControl(user.username),
-        firstName: new FormControl(user.firstName),
-        lastName: new FormControl(user.lastName),
+        firstName: new FormControl(user.firstName, Validators.required),
+        lastName: new FormControl(user.lastName, Validators.required),
         hobbies: new FormControl(user.hobbies),
         about: new FormControl(user.about),
         avatar: new FormControl(user.avatar),
@@ -58,7 +57,7 @@ export class UpdateProfileComponent implements OnInit {
         address: new FormControl(user.address),
         birthDay: new FormControl(user.birthDay),
         password: new FormControl(user.password),
-        email: new FormControl(user.email),
+        email: new FormControl(user.email, [Validators.required, Validators.email]),
       });
     });
   }
@@ -67,10 +66,10 @@ export class UpdateProfileComponent implements OnInit {
     this.uploadService.submit();
     const userUpdate: User = this.editForm.value;
     userUpdate.avatar = this.uploadService.imgSrc;
-    this.userService.updateUserProfile(id, userUpdate).subscribe(() => {
-      alert('success');
+    this.userService.updateUserProfile(id, userUpdate).subscribe(user => {
+      this.user = user;
+      this.getUser(id);
     });
-    this.editForm.reset();
   }
 
   showPreview(event) {
