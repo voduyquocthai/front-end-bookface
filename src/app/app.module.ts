@@ -26,6 +26,7 @@ import { EditPostComponent } from './post/edit-post/edit-post.component';
 import { FriendPostComponent } from './post/friend-post/friend-post.component';
 import { GuestPostComponent } from './post/guest-post/guest-post.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FriendComponent } from './user/friend/friend.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     SignupComponent,
     UserProfileComponent,
+    FriendComponent,
     MyPostComponent,
     EditPostComponent,
     FriendPostComponent,
