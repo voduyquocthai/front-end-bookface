@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 // @ts-ignore
-import {Post} from '../model/Post';
+import {Post} from '../model/post';
 import {Observable} from 'rxjs';
 
 const API_URL = `${environment.apiUrl}`;
