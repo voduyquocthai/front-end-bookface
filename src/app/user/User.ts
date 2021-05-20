@@ -13,4 +13,3 @@ export interface User {
   email?: string;
   enabled?: boolean;
 }
-
