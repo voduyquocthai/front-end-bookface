@@ -6,6 +6,7 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {UpdateProfileComponent} from './user/update-profile/update-profile.component';
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {FriendComponent} from './user/friend/friend.component';
+import {CreatePostComponent} from './post/create-post/create-post.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'users/list-friend/:id',
     component:  FriendComponent
+  },
+  {
+    path: 'create-post',
+    component: CreatePostComponent
   }
 ];
 

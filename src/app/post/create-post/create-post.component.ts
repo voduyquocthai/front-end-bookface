@@ -21,13 +21,16 @@ export class CreatePostComponent implements OnInit {
     postId: null,
     User: null,
     createDate: null,
-    privacy: 0,
+    privacy: 2,
     likeCount: 0,
     heartCount: 0
   };
 
 
-  constructor(private router: Router, private postService: PostService, private titleService: Title ) {
+  constructor(private router: Router,
+              private postService: PostService,
+              private titleService: Title,
+              private storage: AngularFireStorage ) {
     this.titleService.setTitle('Thêm mới');
   }
 
@@ -40,6 +43,7 @@ export class CreatePostComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
+
 
 }
 
