@@ -15,7 +15,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../../token-interceptor';
 import {SideBarComponent} from '../shared/side-bar/side-bar.component';
 import {HomeComponent} from './home.component';
-import {SharedModule} from '../shared/shared-module/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,10 @@ import {SharedModule} from '../shared/shared-module/shared.module';
     UpdateProfileComponent,
     UserProfileComponent,
     FriendComponent,
+    SideBarComponent
   ],
   exports: [
+    SideBarComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +38,6 @@ import {SharedModule} from '../shared/shared-module/shared.module';
     AngularFireDatabaseModule,
     CKEditorModule,
     NgbModule,
-    SharedModule,
   ],
 
   providers: [{

@@ -28,7 +28,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FriendComponent } from './user/friend/friend.component';
 import {TokenInterceptor} from '../token-interceptor';
 import {HomeModule} from './home/home.module';
-import {SharedModule} from './shared/shared-module/shared.module';
 
 @NgModule({
   declarations: [
@@ -54,6 +53,7 @@ import {SharedModule} from './shared/shared-module/shared.module';
     ToastrModule.forRoot(),
     NgbModule,
     BrowserAnimationsModule,
+    HomeModule
   ],
 
   providers: [{
