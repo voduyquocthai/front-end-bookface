@@ -12,7 +12,7 @@ import {Post} from '../../model/post';
 
 
 @Component({
-  selector: 'app-post',
+  selector: 'app-create-post',
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
