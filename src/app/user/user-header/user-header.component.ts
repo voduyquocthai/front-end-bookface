@@ -11,29 +11,34 @@ import {UsersService} from '../service/users.service';
   styleUrls: ['./user-header.component.css']
 })
 export class UserHeaderComponent implements OnInit {
-  @Input()user: User = {};
-  @Input()check: boolean;
-  id = -1;
+  @Input() user: User = {};
+  isMe = false;
+  @Input() id = -1;
   friendShip: Friend;
+
   constructor(private localStorage: LocalStorageService,
               private activatedRoute: ActivatedRoute,
               private userService: UsersService) {
     this.activatedRoute.paramMap.subscribe(param => {
       this.id = +param.get('id');
-      if (this.localStorage.retrieve('userId') === this.id){
-        this.check = true;
+      if (this.id === localStorage.retrieve('userId')) {
+        this.isMe = true;
+      } else {
+        this.isMe = false;
       }
+      this.getFriendByDoubleId(this.id);
     });
   }
 
   ngOnInit(): void {
   }
-  getFriendByDoubleId() {
+
+  getFriendByDoubleId(id: number) {
     let senderId = this.localStorage.retrieve('userId');
-    let receiverId = this.id;
+    let receiverId = id;
     this.userService.getFriendByDoubleId(senderId, receiverId).subscribe(value => {
       console.log(value);
-      // this.friendShip = value;
+      this.friendShip = value;
     });
   }
 
@@ -51,7 +56,24 @@ export class UserHeaderComponent implements OnInit {
     console.log(this.friendShip, 'friendship');
 
     this.userService.addFriendInFriendsUser(this.friendShip).subscribe(value => {
-      console.log(value);
+      this.friendShip = value;
+    });
+  }
+
+  unFriend() {
+    if (this.user.userId === this.friendShip.sender.userId) {
+
+    }
+    console.log(this.friendShip, 'frienship');
+    this.userService.unFriend(this.friendShip.id).subscribe(value => {
+      console.log(value, 'res');
+      this.friendShip = value;
+    });
+  }
+
+  accept() {
+    this.userService.accept(this.friendShip).subscribe(value => {
+      this.friendShip = value;
     });
   }
 }

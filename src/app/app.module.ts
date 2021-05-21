@@ -12,7 +12,6 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
@@ -27,30 +26,15 @@ import { FriendPostComponent } from './post/friend-post/friend-post.component';
 import { GuestPostComponent } from './post/guest-post/guest-post.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FriendComponent } from './user/friend/friend.component';
-import { UserHeaderComponent } from './user/user-header/user-header.component';
-import { SearchFriendComponent } from './user/search-friend/search-friend.component';
 import {TokenInterceptor} from '../token-interceptor';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpdateProfileComponent,
-    AppComponent,
-    HomeComponent,
     HeaderComponent,
-    SideBarComponent,
-    CreatePostComponent,
-    SideBarComponent,
     LoginComponent,
     SignupComponent,
-    UserProfileComponent,
-    FriendComponent,
-    MyPostComponent,
-    EditPostComponent,
-    FriendPostComponent,
-    GuestPostComponent,
-    UserHeaderComponent,
-    SearchFriendComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +52,8 @@ import {TokenInterceptor} from '../token-interceptor';
     NgxWebstorageModule.forRoot(),
     ToastrModule.forRoot(),
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HomeModule
   ],
 
   providers: [{
