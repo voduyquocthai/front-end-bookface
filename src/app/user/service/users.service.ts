@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {User} from '../User';
 import {Friend} from '../Friend';
+import {User} from '../user';
+
 
 const API_URL = `${environment.apiUrl}`;
 
