@@ -27,6 +27,8 @@ import { FriendPostComponent } from './post/friend-post/friend-post.component';
 import { GuestPostComponent } from './post/guest-post/guest-post.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FriendComponent } from './user/friend/friend.component';
+import { UserHeaderComponent } from './user/user-header/user-header.component';
+import { SearchFriendComponent } from './user/search-friend/search-friend.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { FriendComponent } from './user/friend/friend.component';
     MyPostComponent,
     EditPostComponent,
     FriendPostComponent,
-    GuestPostComponent
+    GuestPostComponent,
+    UserHeaderComponent,
+    SearchFriendComponent
   ],
   imports: [
     BrowserModule,

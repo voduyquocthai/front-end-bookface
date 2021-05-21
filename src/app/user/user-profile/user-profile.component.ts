@@ -3,6 +3,7 @@ import {User} from '../user';
 import {UsersService} from '../service/users.service';
 import {ActivatedRoute} from '@angular/router';
 import {parse} from '@angular/compiler/src/render3/view/style_parser';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,13 +14,18 @@ export class UserProfileComponent implements OnInit {
   id = -1;
   user: User = {};
   listFriend: User[] = [];
+  check = false;
 
   constructor(private userService: UsersService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private localStorage: LocalStorageService) {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       this.id = +paramMap.get('id');
       this.getUser(this.id);
       this.getAllFriend(this.id);
+      if (this.localStorage.retrieve('userId') === this.id){
+        this.check = true;
+      }
     });
   }
 
