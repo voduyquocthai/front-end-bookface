@@ -28,6 +28,7 @@ import { PostTileComponent } from './shared/post-tile/post-tile.component';
 import { FriendRequestSideBarComponent } from './shared/friend-request-side-bar/friend-request-side-bar.component';
 import { EmotionComponent } from './shared/emotion/emotion.component';
 import { CommentComponent } from './shared/comment/comment.component';
+import { ViewPostComponent } from './post/view-post/view-post.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CommentComponent } from './shared/comment/comment.component';
     HeaderComponent,
     LoginComponent,
     SignupComponent,
+    ViewPostComponent,
   ],
   imports: [
     BrowserModule,
