@@ -6,8 +6,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs';
 import {finalize} from 'rxjs/operators';
-import {Post} from '../../model/post';
 import {Title} from '@angular/platform-browser';
+import {Post} from '../../model/post';
 
 
 
