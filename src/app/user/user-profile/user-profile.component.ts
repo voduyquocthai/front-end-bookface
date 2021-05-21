@@ -13,10 +13,8 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class UserProfileComponent implements OnInit {
   id = -1;
-  friendShip: Friend;
   user: User = {};
   listFriend: User[] = [];
-  isMe: boolean;
 
   constructor(private userService: UsersService,
               private activatedRoute: ActivatedRoute,
@@ -26,58 +24,9 @@ export class UserProfileComponent implements OnInit {
       this.getUser(this.id);
       this.getAllFriend(this.id);
     });
-    if (this.id == localStorage.retrieve('userId')) {
-      this.isMe = true;
-    }
   }
-
 
   ngOnInit(): void {
-    this.getFriendByDoubleId();
-  }
-
-  getFriendByDoubleId() {
-    let senderId = this.localStorage.retrieve('userId');
-    let receiverId = this.id;
-    this.userService.getFriendByDoubleId(senderId, receiverId).subscribe(value => {
-      console.log(value);
-      this.friendShip = value;
-    });
-  }
-
-  addFriend() {
-    this.friendShip = new Friend();
-    this.friendShip = {
-      sender: {
-        userId: this.localStorage.retrieve('userId')
-      },
-      receiver: {
-        userId: this.id
-      },
-      status: false
-    };
-    console.log(this.friendShip, 'friendship');
-
-    this.userService.addFriendInFriendsUser(this.friendShip).subscribe(value => {
-      this.friendShip = value;
-    });
-  }
-
-  unFriend() {
-    if (this.user.userId == this.friendShip.sender.userId) {
-
-    }
-    console.log(this.friendShip, 'frienship');
-    this.userService.unFriend(this.friendShip.id).subscribe(value => {
-      console.log(value, 'res');
-      this.friendShip = value;
-    });
-  }
-
-  accept() {
-    this.userService.accept(this.friendShip).subscribe(value => {
-      this.friendShip = value;
-    });
   }
 
   getUser(id: number) {

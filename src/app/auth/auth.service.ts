@@ -6,7 +6,7 @@ import {Observable, throwError} from 'rxjs';
 import {SignupRequestPayload} from './signup/signup-request.payload';
 import {LoginRequestPayload} from './login/login.request.payload';
 import {LoginResponse} from './login/login.response.payload';
-import { map, tap } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {User} from '../user/user';
 
 @Injectable({
@@ -25,10 +25,11 @@ export class AuthService {
 
   private apiServerUrl = environment.apiBaseServer;
 
-  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
+  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) {
+  }
 
   signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
-    return this.httpClient.post(`${this.apiServerUrl}/auth/signup`, signupRequestPayload, { responseType: 'text' });
+    return this.httpClient.post(`${this.apiServerUrl}/auth/signup`, signupRequestPayload, {responseType: 'text'});
   }
 
   login(loginRequestPayload: LoginRequestPayload): Observable<boolean> {
@@ -65,7 +66,7 @@ export class AuthService {
 
   logout() {
     this.httpClient.post(`${this.apiServerUrl}/auth/logout`, this.refreshTokenPayload,
-      { responseType: 'text' })
+      {responseType: 'text'})
       .subscribe(data => {
         console.log(data);
       }, error => {
@@ -81,9 +82,11 @@ export class AuthService {
   getUserName() {
     return this.localStorage.retrieve('username');
   }
+
   getUserId() {
     return this.localStorage.retrieve('userId');
   }
+
   getRefreshToken() {
     return this.localStorage.retrieve('refreshToken');
   }
@@ -93,7 +96,7 @@ export class AuthService {
   }
 
   getUserByUserName(username: string): Observable<User> {
-    return this.httpClient.get<User>(`${this.apiServerUrl}/users/${username}`)
+    return this.httpClient.get<User>(`${this.apiServerUrl}/users/${username}`);
   }
 
 }
