@@ -15,6 +15,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../../token-interceptor';
 import {SideBarComponent} from '../shared/side-bar/side-bar.component';
 import {HomeComponent} from './home.component';
+import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
+import {AppModule} from '../app.module';
+import {PostTileComponent} from '../shared/post-tile/post-tile.component';
+import {FriendRequestSideBarComponent} from '../shared/friend-request-side-bar/friend-request-side-bar.component';
+import {EmotionComponent} from '../shared/emotion/emotion.component';
+import {CommentComponent} from '../shared/comment/comment.component';
+import {CreatePostComponent} from '../post/create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,13 @@ import {HomeComponent} from './home.component';
     UpdateProfileComponent,
     UserProfileComponent,
     FriendComponent,
-    SideBarComponent
+    SideBarComponent,
+    NewsfeedComponent,
+    PostTileComponent,
+    FriendRequestSideBarComponent,
+    EmotionComponent,
+    CommentComponent,
+    CreatePostComponent
   ],
   exports: [
     SideBarComponent
