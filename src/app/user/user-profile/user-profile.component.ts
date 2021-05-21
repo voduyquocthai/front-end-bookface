@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
     this.getFriendByDoubleId();
   }
 
-    getFriendByDoubleId() {
+  getFriendByDoubleId() {
     let senderId = this.localStorage.retrieve('userId');
     let receiverId = this.id;
     this.userService.getFriendByDoubleId(senderId, receiverId).subscribe(value => {
@@ -51,8 +51,8 @@ export class UserProfileComponent implements OnInit {
         userId: this.id
       },
       status: false
-    }
-    console.log(this.friendShip, 'friendship')
+    };
+    console.log(this.friendShip, 'friendship');
 
     this.userService.addFriendInFriendsUser(this.friendShip).subscribe(value => {
       console.log(value);

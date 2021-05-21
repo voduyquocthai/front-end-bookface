@@ -10,6 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FriendComponent implements OnInit {
   listFriend: User[] = [];
+  friendList: User[] = [];
   @Input() id = -1;
   user: User = {};
   check: boolean;
@@ -31,6 +32,7 @@ export class FriendComponent implements OnInit {
   getAllFriend(id: number) {
     this.userService.getAllFriend(id).subscribe(users => {
       this.listFriend = users;
+      this.friendList = users;
     });
   }
 
@@ -43,9 +45,9 @@ export class FriendComponent implements OnInit {
   findFriend(key: string) {
     const friends = [];
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.listFriend.length; i++) {
-      if (this.listFriend[i].username.includes(key)) {
-        friends.push(this.listFriend[i]);
+    for (let i = 0; i < this.friendList.length; i++) {
+      if (this.friendList[i].username.includes(key)) {
+        friends.push(this.friendList[i]);
       }
     }
     this.listFriend = friends;
