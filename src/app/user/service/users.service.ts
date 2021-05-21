@@ -34,4 +34,11 @@ export class UsersService {
   getAllFriend(id: number): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users/list-friend/${id}`);
   }
+
+  unFriend(id: string): Observable<any>{
+        return this.http.get<any>(`${API_URL}/friend/unfriend/${id}`);
+  }
+  accept(friendShip: Friend): Observable<Friend>{
+    return this.http.post<Friend>(`${API_URL}/friend/add-accept`,friendShip)
+  }
 }

@@ -36,7 +36,7 @@ export class UserProfileComponent implements OnInit {
     let receiverId = this.id;
     this.userService.getFriendByDoubleId(senderId, receiverId).subscribe(value => {
       console.log(value);
-      // this.friendShip = value;
+       this.friendShip = value;
     })
   }
 
@@ -54,8 +54,37 @@ export class UserProfileComponent implements OnInit {
     console.log(this.friendShip, 'friendship')
 
     this.userService.addFriendInFriendsUser(this.friendShip).subscribe(value => {
-      console.log(value);
+      this.friendShip = value;
     })
+  }
+
+  unFriend() {
+    if(this.user.userId == this.friendShip.sender.userId) {
+
+    }
+    console.log(this.friendShip, 'frienship');
+      this.userService.unFriend(this.friendShip.id).subscribe(value => {
+        console.log(value, 'res');
+        this.friendShip = value;
+      })
+  }
+
+  accept() {
+    this.userService.accept(this.friendShip).subscribe(value => {
+      this.friendShip = value;
+    });
+  }
+
+  xuly( ) {
+    if (this.friendShip || this.friendShip && this.friendShip.status == true) {
+      this.unFriend()
+    }
+    // else if(this.friendShip || this.friendShip && this.friendShip.status == false ){
+    //   this.unFriend()
+    // }
+    else {
+      this.addFriend()
+    }
   }
 
   getUser(id: number) {

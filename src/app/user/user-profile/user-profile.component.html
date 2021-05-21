@@ -11,11 +11,23 @@
               <h4 class="fw-700 font-sm mt-2 mb-lg-5 mb-4 pl-15">{{user.username}}<span class="fw-500 font-xssss text-grey-500 mt-1 mb-3 d-block">{{user.email}}</span></h4>
               <div class="d-flex align-items-center justify-content-center position-absolute-md right-15 top-0 me-2">
 
+<!--                <div [ngClass]="{'friend': friendShip, 'no_friend' : !friendShip}" (click)="xuly()">-->
+<!--                    {{friendShip ? 'Huỷ kết bạn' : 'Kết bạn'}}-->
+<!--                </div>-->
                 <div *ngIf="!friendShip">
                   <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="addFriend()">Add Friend</button>
                 </div>
                 <div *ngIf="friendShip && friendShip.status == false">
-                  <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3">Huỷ yêu cầu</button>
+                  <div *ngIf="friendShip.receiver.userId == user.userId ">
+                    <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="unFriend()">Cancel</button>
+                  </div>
+                  <div *ngIf="friendShip.receiver.userId != user.userId ">
+                    <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="unFriend()">Decline</button>
+                    <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="accept()">Accept</button>
+                  </div>
+                </div>
+                <div *ngIf="friendShip && friendShip.status == true">
+                  <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="unFriend()">Unfriend</button>
                 </div>
 
                 <a href="#" class="d-none d-lg-block bg-greylight btn-round-lg ms-2 rounded-3 text-grey-700"><i class="feather-mail font-md"></i></a>
