@@ -11,11 +11,22 @@
               <h4 class="fw-700 font-sm mt-2 mb-lg-5 mb-4 pl-15">{{user.username}}<span class="fw-500 font-xssss text-grey-500 mt-1 mb-3 d-block">{{user.email}}</span></h4>
               <div class="d-flex align-items-center justify-content-center position-absolute-md right-15 top-0 me-2">
 
-                <div *ngIf="!friendShip">
-                  <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="addFriend()">Add Friend</button>
-                </div>
-                <div *ngIf="friendShip && friendShip.status == false">
-                  <button class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3">Huỷ yêu cầu</button>
+                <div class="input-group mb-3" *ngIf="!this.isMe">
+                  <div *ngIf="!friendShip" style="text-align: center; width: 170px">
+                    <div type="button" class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3 btn-outline-secondary" (click)="addFriend()">Add Friend</div>
+                  </div>
+                  <div *ngIf="friendShip && friendShip.status == false"style="text-align: center; width: 170px">
+                    <div *ngIf="friendShip.receiver.userId == user.userId" class="row">
+                      <div type="button" class="col-12 d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3 btn-outline-secondary" (click)="unFriend()">Cancel</div>
+                    </div>
+                    <div *ngIf="friendShip.receiver.userId != user.userId " class="row">
+                      <div type="button" class="col-6 d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="unFriend()">Decline</div>
+                      <div type="button" class="col-6 d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3" (click)="accept()">Accept</div>
+                    </div>
+                  </div>
+                  <div *ngIf="friendShip && friendShip.status == true" style="text-align: center; width: 170px">
+                    <div type="button" class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3 btn-outline-secondary " (click)="unFriend()">Unfriend</div>
+                  </div>
                 </div>
 
                 <a href="#" class="d-none d-lg-block bg-greylight btn-round-lg ms-2 rounded-3 text-grey-700"><i class="feather-mail font-md"></i></a>
