@@ -22,6 +22,7 @@ import {FriendRequestSideBarComponent} from '../shared/friend-request-side-bar/f
 import {EmotionComponent} from '../shared/emotion/emotion.component';
 import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
+import {UserHeaderComponent} from '../user/user-header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {CreatePostComponent} from '../post/create-post/create-post.component';
     FriendRequestSideBarComponent,
     EmotionComponent,
     CommentComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    UserHeaderComponent
   ],
   exports: [
     SideBarComponent
