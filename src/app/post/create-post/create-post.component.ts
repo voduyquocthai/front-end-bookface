@@ -1,13 +1,20 @@
 import {Component, Input, OnInit} from '@angular/core';
-// @ts-ignore
-import {FormControl, FormGroup} from '@angular/forms';
+
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../services/post.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Router} from '@angular/router';
 import {AngularFireStorage} from '@angular/fire/storage';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
 import {Post} from '../../model/post';
+import {PostPayload} from './post.payload';
+
+import {UsersService} from '../../user/service/users.service';
+import {AuthService} from '../../auth/auth.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {User} from '../../user/user';
+
 
 
 @Component({
@@ -15,35 +22,63 @@ import {Post} from '../../model/post';
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
-
 export class CreatePostComponent implements OnInit {
-  post: Post = {
-    postId: null,
-    User: null,
-    createDate: null,
-    privacy: 2,
-    likeCount: 0,
-    heartCount: 0
-  };
-
+  public Editor = ClassicEditor;
+  currentUser: User;
+  createPostForm: FormGroup;
+  postPayload: PostPayload;
 
   constructor(private router: Router,
               private postService: PostService,
-              private titleService: Title,
-              private storage: AngularFireStorage ) {
-    this.titleService.setTitle('Thêm mới');
+              private userService: UsersService,
+              private authService: AuthService,
+              private route: Router) {
+    this.postPayload = {
+      description: '',
+      privacy: 0,
+
+    };
   }
 
-  ngOnInit(): void {
-  }
-
-  createStatusPost(){
-    this.postService.createStatusPost(this.post).subscribe(() => {
-      alert('Thêm mới thành công!');
-      this.router.navigate(['/']);
+  ngOnInit() {
+    this.getCurrentUser();
+    this.createPostForm = new FormGroup({
+      privacy: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
     });
   }
 
+  createPost() {
+    this.postPayload.privacy = + this.createPostForm.get('privacy').value;
+    this.postPayload.description = this.createPostForm.get('description').value;
 
+    this.postService.createPost(this.postPayload).subscribe((data) => {
+      console.log(data);
+      this.createPostForm.reset();
+      const closeBtn = document.getElementById('close-btn');
+      closeBtn.click();
+
+    }, error => {
+      console.log(error.message);
+    });
+  }
+
+  openCreatePostModal(){
+    const container = document.getElementById('post-card');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-bs-toggle', 'modal');
+    button.setAttribute('data-bs-target', '#createPostModal');
+    container.appendChild(button);
+    button.click();
+  }
+
+  getCurrentUser(){
+      let userId = this.authService.getUserId();
+      this.userService.getUserById(userId).subscribe(
+        data => this.currentUser = data,
+        error => console.log(error.message)
+      );
+  }
 }
-
