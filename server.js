@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+app.use(cors().caller);
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/front-end-bookface'));
