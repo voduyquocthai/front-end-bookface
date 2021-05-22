@@ -10,7 +10,6 @@ import {Title} from '@angular/platform-browser';
 import {Post} from '../../model/post';
 
 
-
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',

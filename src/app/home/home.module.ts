@@ -15,9 +15,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../../token-interceptor';
 import {SideBarComponent} from '../shared/side-bar/side-bar.component';
 import {HomeComponent} from './home.component';
-import {MyPostComponent} from '../post/my-post/my-post.component';
+import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
+import {AppModule} from '../app.module';
+import {PostTileComponent} from '../shared/post-tile/post-tile.component';
+import {FriendRequestSideBarComponent} from '../shared/friend-request-side-bar/friend-request-side-bar.component';
+import {EmotionComponent} from '../shared/emotion/emotion.component';
+import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
-import {EditPostComponent} from '../post/edit-post/edit-post.component';
+import {UserHeaderComponent} from '../user/user-header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +31,13 @@ import {EditPostComponent} from '../post/edit-post/edit-post.component';
     UserProfileComponent,
     FriendComponent,
     SideBarComponent,
+    NewsfeedComponent,
+    PostTileComponent,
+    FriendRequestSideBarComponent,
+    EmotionComponent,
+    CommentComponent,
     CreatePostComponent,
-    MyPostComponent,
-    EditPostComponent
+    UserHeaderComponent
   ],
   exports: [
     SideBarComponent
