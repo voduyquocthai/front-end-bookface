@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'https://book-face-be.herokuapp.com',
   firebaseConfig: {
     apiKey: 'AIzaSyAzjvclwX9lyH3u4OkS0FGSUVbTYQbL4Ac',
