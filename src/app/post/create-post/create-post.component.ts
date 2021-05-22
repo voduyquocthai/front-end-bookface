@@ -6,8 +6,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs';
 import {finalize} from 'rxjs/operators';
-import {Post} from '../../model/post';
 import {Title} from '@angular/platform-browser';
+import {Post} from '../../model/post';
 
 
 
@@ -16,6 +16,7 @@ import {Title} from '@angular/platform-browser';
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
+
 export class CreatePostComponent implements OnInit {
   post: Post = {
     postId: null,
