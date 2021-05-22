@@ -9,4 +9,6 @@ export class PostModel {
   duration: string;
   liked: boolean;
   hearted: boolean;
+  privacy: number;
+  userId: number;
 }

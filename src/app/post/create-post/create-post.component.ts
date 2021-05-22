@@ -7,7 +7,6 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable, throwError} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
-import {Post} from '../../model/post';
 import {PostPayload} from './post.payload';
 
 import {UsersService} from '../../user/service/users.service';
@@ -57,7 +56,6 @@ export class CreatePostComponent implements OnInit {
       this.createPostForm.reset();
       const closeBtn = document.getElementById('close-btn');
       closeBtn.click();
-
     }, error => {
       console.log(error.message)
     })
