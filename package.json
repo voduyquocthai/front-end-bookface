@@ -27,6 +27,7 @@
     "@ckeditor/ckeditor5-angular": "^2.0.1",
     "@ckeditor/ckeditor5-build-classic": "^27.1.0",
     "@ng-bootstrap/ng-bootstrap": "^9.1.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^8.6.1",
     "ngx-toastr": "^14.0.0",
