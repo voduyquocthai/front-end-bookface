@@ -24,22 +24,23 @@ export class UsersService {
     return this.http.put<User>(`${API_URL}/users/update-profile/${id}`, userUpdate);
   }
 
-  getFriendByDoubleId(senderId: string, receiverId: number) {
+  getFriendByDoubleId(senderId: string, receiverId: number): Observable<Friend> {
     return this.http.get(`${API_URL}/friend/search/${senderId}/${receiverId}`);
   }
 
-  addFriendInFriendsUser(friendShip: Friend): Observable<Friend>{
-    return this.http.post<Friend>(`${API_URL}/friend/add-waiting`,friendShip)
-  };
+  addFriendInFriendsUser(friendShip: Friend): Observable<Friend> {
+    return this.http.post<Friend>(`${API_URL}/friend/add-waiting`, friendShip);
+  }
 
   getAllFriend(id: number): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users/list-friend/${id}`);
   }
 
-  unFriend(id: string): Observable<any>{
-        return this.http.get<any>(`${API_URL}/friend/unfriend/${id}`);
+  unFriend(id: string): Observable<any> {
+    return this.http.get<any>(`${API_URL}/friend/unfriend/${id}`);
   }
-  accept(friendShip: Friend): Observable<Friend>{
-    return this.http.post<Friend>(`${API_URL}/friend/add-accept`,friendShip)
+
+  accept(friendShip: Friend): Observable<Friend> {
+    return this.http.post<Friend>(`${API_URL}/friend/add-accept`, friendShip);
   }
 }
