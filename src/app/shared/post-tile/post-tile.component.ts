@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PostModel} from '../../post/post-model';
+import {Router} from '@angular/router';
+import {PostService} from '../../services/post.service';
 
 @Component({
   selector: 'app-post-tile',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostTileComponent implements OnInit {
 
-  constructor() { }
+  @Input() posts: PostModel[] = [];
+
+  constructor(private router: Router, private postService: PostService) {
+
+  }
 
   ngOnInit(): void {
+
   }
+
+  goToPost(id: number): void {
+
+  }
+
 
 }
