@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 // @ts-ignore
-import {Post} from '../model/post';
 import {Observable} from 'rxjs';
 import {PostModel} from '../post/post-model';
 import {PostPayload} from '../post/create-post/post.payload';
