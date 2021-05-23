@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../services/post.service';
@@ -14,6 +14,7 @@ import {UsersService} from '../../user/service/users.service';
 import {AuthService} from '../../auth/auth.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {User} from '../../user/user';
+import { PostModel } from '../post-model';
 
 
 
@@ -27,6 +28,7 @@ export class CreatePostComponent implements OnInit {
   currentUser: User;
   createPostForm: FormGroup;
   postPayload: PostPayload;
+  postCreated: PostModel;
 
   constructor(private router: Router,
               private postService: PostService,
@@ -48,12 +50,23 @@ export class CreatePostComponent implements OnInit {
     });
   }
 
+  @Output()
+  //https://angular.io/guide/inputs-outputs
+  createPostEvent = new EventEmitter<PostModel>();
+
+  onCreatePost(post : PostModel) {
+    console.log("Emit post created: ", post);
+    this.createPostEvent.emit(post);
+  }
+
   createPost() {
     this.postPayload.privacy = + this.createPostForm.get('privacy').value;
     this.postPayload.description = this.createPostForm.get('description').value;
 
     this.postService.createPost(this.postPayload).subscribe((data) => {
       console.log(data);
+      this.postCreated = data;
+      this.onCreatePost(this.postCreated);
       this.createPostForm.reset();
       const closeBtn = document.getElementById('close-btn');
       closeBtn.click();
