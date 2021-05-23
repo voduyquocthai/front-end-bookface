@@ -1,0 +1,2 @@
+<app-header [username]="username" [userId]="userId" *ngIf="!guestBrowsing"></app-header>
+<app-header-guest *ngIf="guestBrowsing"></app-header-guest>

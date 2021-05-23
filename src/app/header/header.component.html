@@ -1,5 +1,5 @@
 <!-- navigation top for user-->
-  <div *ngIf="isLoggedIn" class="nav-header bg-white shadow-xs border-0">
+  <div class="nav-header bg-white shadow-xs border-0">
     <div class="nav-top">
       <a routerLink=""><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
       <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
@@ -162,25 +162,9 @@
       </button>
     </div>
   </div>
-  <!-- navigation top -->
-  <!-- navigation top for guest-->
-  <div *ngIf="!isLoggedIn" class="nav-header bg-white shadow-xs border-0">
-    <div class="nav-top">
-      <a routerLink=""><i class="feather-zap text-success display1-size me-2 ms-0"></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a>
-      <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"><i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
-      <a href="default-video.html" class="mob-menu me-2"><i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
-      <a href="#" class="me-2 menu-search-icon mob-menu"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
-      <button class="nav-menu me-0 ms-2"></button>
-    </div>
-    <a routerLink="/login" class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl" data-toggle="modal" data-target="#Modallogin">Login</a>
-    <a routerLink="/sign-up" class="header-btn d-none d-lg-block bg-primary fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl" data-toggle="modal" data-target="#Modalregister">Register</a>
-
-
-  </div>
-  <!-- navigation top -->
 
   <!-- right chat -->
-  <div *ngIf="isLoggedIn" class="right-chat nav-wrap mt-2 right-scroll-bar">
+  <div class="right-chat nav-wrap mt-2 right-scroll-bar">
     <div class="middle-sidebar-right-content bg-white shadow-xss rounded-xxl">
 
       <!-- loader wrapper -->

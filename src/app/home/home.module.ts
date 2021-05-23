@@ -23,6 +23,9 @@ import {EmotionComponent} from '../shared/emotion/emotion.component';
 import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
+import { HeaderComponent } from '../header/header.component';
+import { HeaderContainerComponent } from '../header-container/header-container.component';
+import { HeaderGuestComponent } from '../header-guest/header-guest.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import {UserHeaderComponent} from '../user/user-header/user-header.component';
     EmotionComponent,
     CommentComponent,
     CreatePostComponent,
-    UserHeaderComponent
+    HeaderContainerComponent,
+    HeaderComponent,
+    HeaderGuestComponent
   ],
   exports: [
     SideBarComponent
