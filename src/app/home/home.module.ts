@@ -42,7 +42,8 @@ import { HeaderGuestComponent } from '../header-guest/header-guest.component';
     CreatePostComponent,
     HeaderContainerComponent,
     HeaderComponent,
-    HeaderGuestComponent
+    HeaderGuestComponent,
+    UserHeaderComponent
   ],
   exports: [
     SideBarComponent
