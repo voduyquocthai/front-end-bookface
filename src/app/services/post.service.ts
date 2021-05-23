@@ -6,6 +6,8 @@ import {Post} from '../model/post';
 import {Observable} from 'rxjs';
 import {PostModel} from '../post/post-model';
 import {PostPayload} from '../post/create-post/post.payload';
+import { DUMMY_POST } from '../dummy-const';
+import { of } from 'rxjs';
 
 
 
@@ -14,17 +16,23 @@ import {PostPayload} from '../post/create-post/post.payload';
 })
 export class PostService {
 
+  private dummyPost: PostModel[] = DUMMY_POST;
+
   private apiServerUrl = environment.apiBaseServer;
 
   constructor(private http: HttpClient) {
   }
 
   getAllPosts(): Observable<Array<PostModel>> {
-    return this.http.get<Array<PostModel>>(`${this.apiServerUrl}/posts`);
+    return of(this.dummyPost);
+    // return this.http.get<Array<PostModel>>(`${this.apiServerUrl}/posts`);
   }
 
-  createPost(postPayload: PostPayload): Observable<any> {
-    return this.http.post<any>(`${this.apiServerUrl}/posts`, postPayload);
+  createPost(postPayload: PostPayload): Observable<PostModel> {
+    const dummyCreatedPost = Object.assign({}, this.dummyPost[0]);
+    dummyCreatedPost.description = postPayload.description;
+    return of(dummyCreatedPost);
+    // return this.http.post<any>(`${this.apiServerUrl}/posts`, postPayload);
   }
 
   updatePost(postPayload: PostPayload): Observable<any> {
