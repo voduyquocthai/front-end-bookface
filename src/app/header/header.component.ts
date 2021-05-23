@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import {AuthService} from '../auth/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+import { LoginComponent } from '../auth/login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -8,19 +10,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean;
+
+  @Input()
   username: string;
+
+  @Input()
   userId: number;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  @Output()
+  logOutEvent = new EventEmitter<boolean>()
 
+  constructor(private router: Router) { }
+
+  //The header component should only display the data and emit the event.
+  //Let the parent component handles all of the data in and out
   ngOnInit() {
-    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
-    this.authService.username.subscribe((data: string) => this.username = data);
-    this.authService.userId.subscribe((data: number) => this.userId = data);
-    this.isLoggedIn = this.authService.isLoggedIn();
-    this.username = this.authService.getUserName();
-    this.userId = this.authService.getUserId();
   }
 
   goToUserProfile() {
@@ -28,9 +32,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
-    this.isLoggedIn = false;
-    this.router.navigateByUrl('');
+    this.logOutEvent.emit(true);
   }
 
 }
