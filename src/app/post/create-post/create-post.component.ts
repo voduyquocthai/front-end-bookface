@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../services/post.service';
@@ -13,6 +13,7 @@ import {UsersService} from '../../user/service/users.service';
 import {AuthService} from '../../auth/auth.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {User} from '../../user/user';
+import {PostModel} from '../post-model';
 
 
 
@@ -26,6 +27,7 @@ export class CreatePostComponent implements OnInit {
   currentUser: User;
   createPostForm: FormGroup;
   postPayload: PostPayload;
+  postCreated: PostModel = {};
 
   constructor(private router: Router,
               private postService: PostService,
@@ -47,12 +49,28 @@ export class CreatePostComponent implements OnInit {
     });
   }
 
+  @Output()
+  createdPostEvent = new EventEmitter<PostModel>();
+
+  onCreatePost(post: PostModel){
+    console.log("Emit post create", post);
+    this.createdPostEvent.emit(post)
+  }
+
   createPost() {
     this.postPayload.privacy = + this.createPostForm.get('privacy').value;
     this.postPayload.description = this.createPostForm.get('description').value;
 
     this.postService.createPost(this.postPayload).subscribe((data) => {
-      console.log(data);
+      this.postCreated = {
+        description: this.postPayload.description,
+        userAvatar: this.currentUser.avatar,
+        userName: this.currentUser.username,
+        likeCount: 0,
+        heartCount: 0,
+        commentCount: 0
+      }
+      this.onCreatePost(this.postCreated);
       this.createPostForm.reset();
       const closeBtn = document.getElementById('close-btn');
       closeBtn.click();
