@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {path: 'login', component: LoginComponent},
   {path: 'sign-up', component: SignupComponent},
-];
+]; git fetch --all
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
