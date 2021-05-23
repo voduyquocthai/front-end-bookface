@@ -26,4 +26,9 @@ export class NewsfeedComponent implements OnInit {
     )
   }
 
+  addCreatedPost(createdPost: PostModel) {
+      console.log("Catch the post: ", createdPost);
+      this.posts.push(createdPost); //Add the created post to the posts array
+  }
+
 }
