@@ -7,7 +7,6 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable, throwError} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 import {Title} from '@angular/platform-browser';
-import {Post} from '../../model/post';
 import {PostPayload} from './post.payload';
 
 import {UsersService} from '../../user/service/users.service';
@@ -37,7 +36,7 @@ export class CreatePostComponent implements OnInit {
       description: '',
       privacy: 0,
 
-    }
+    };
   }
 
   ngOnInit() {
@@ -59,8 +58,8 @@ export class CreatePostComponent implements OnInit {
       closeBtn.click();
 
     }, error => {
-      console.log(error.message)
-    })
+      console.log(error.message);
+    });
   }
 
   openCreatePostModal(){
@@ -79,6 +78,6 @@ export class CreatePostComponent implements OnInit {
       this.userService.getUserById(userId).subscribe(
         data => this.currentUser = data,
         error => console.log(error.message)
-      )
+      );
   }
 }

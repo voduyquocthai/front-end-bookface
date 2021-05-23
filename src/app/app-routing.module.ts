@@ -8,7 +8,7 @@ import {HomeModule} from './home/home.module';
 const routes: Routes = [
   {path: '',
     loadChildren: () => import('./home/home.module').then(module => module.HomeModule)
-    },
+  },
   {path: 'login', component: LoginComponent},
   {path: 'sign-up', component: SignupComponent},
 ];
