@@ -4,6 +4,7 @@ import { ReplaySubject, Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { StateService } from '../services/state.service';
+import { User } from '../user/user';
 
 @Component({
   selector: 'app-header-container',
@@ -18,6 +19,8 @@ export class HeaderContainerComponent implements OnInit, OnDestroy {
 
   userId: string;
 
+  user: User;
+
   subcription: Subscription;
 
   constructor(private authService: AuthService,
@@ -31,6 +34,9 @@ export class HeaderContainerComponent implements OnInit, OnDestroy {
         this.guestBrowsing = false;
         this.username = data.username;
         this.userId = data.userid;
+        this.authService.getUserByUserName(this.username).subscribe(user => {
+          this.user = user;
+        });
     })
   }
 

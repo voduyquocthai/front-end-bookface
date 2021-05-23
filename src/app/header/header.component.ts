@@ -1,5 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Router} from '@angular/router';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {AuthService} from '../auth/auth.service';
+import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+import { LoginComponent } from '../auth/login/login.component';
+import { User } from '../user/user';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +17,9 @@ export class HeaderComponent implements OnInit {
 
   @Input()
   userId: number;
+
+  @Input()
+  user: User;
 
   @Output()
   logOutEvent = new EventEmitter<boolean>()

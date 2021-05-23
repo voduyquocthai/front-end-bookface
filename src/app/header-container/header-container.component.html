@@ -1,5 +1,6 @@
 <app-header [username]="username"
             [userId]="userId"
+            [user]="user"
             *ngIf="!guestBrowsing"
             (logOutEvent)="handleLogOutEvent($event)"></app-header>
 <app-header-guest *ngIf="guestBrowsing"></app-header-guest>
