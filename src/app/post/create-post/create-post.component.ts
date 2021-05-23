@@ -38,7 +38,7 @@ export class CreatePostComponent implements OnInit {
       description: '',
       privacy: 0,
 
-    }
+    };
   }
 
   ngOnInit() {
@@ -75,8 +75,8 @@ export class CreatePostComponent implements OnInit {
       const closeBtn = document.getElementById('close-btn');
       closeBtn.click();
     }, error => {
-      console.log(error.message)
-    })
+      console.log(error.message);
+    });
   }
 
   openCreatePostModal(){
@@ -95,6 +95,6 @@ export class CreatePostComponent implements OnInit {
       this.userService.getUserById(userId).subscribe(
         data => this.currentUser = data,
         error => console.log(error.message)
-      )
+      );
   }
 }
