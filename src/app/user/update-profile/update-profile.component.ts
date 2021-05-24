@@ -20,7 +20,6 @@ export class UpdateProfileComponent implements OnInit {
     lastName: new FormControl(),
     hobbies: new FormControl(),
     about: new FormControl(),
-    avatar: new FormControl(),
     phone: new FormControl(),
     address: new FormControl(),
     birthDay: new FormControl(),
@@ -53,7 +52,6 @@ export class UpdateProfileComponent implements OnInit {
         lastName: new FormControl(user.lastName, Validators.required),
         hobbies: new FormControl(user.hobbies),
         about: new FormControl(user.about),
-        avatar: new FormControl(user.avatar),
         phone: new FormControl(user.phone),
         address: new FormControl(user.address),
         birthDay: new FormControl(user.birthDay),
@@ -64,10 +62,10 @@ export class UpdateProfileComponent implements OnInit {
     });
   }
 
-  update(id) {
-    this.uploadService.submit();
+  async update(id) {
+    let imgUrl = await this.uploadService.submit();
     const userUpdate: User = this.editForm.value;
-    userUpdate.avatar = this.uploadService.imgSrc;
+    userUpdate.avatar = imgUrl;
     this.userService.updateUserProfile(id, userUpdate).subscribe(user => {
       this.user = user;
       this.getUser(id);
