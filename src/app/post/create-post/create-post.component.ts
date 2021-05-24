@@ -37,7 +37,6 @@ export class CreatePostComponent implements OnInit {
     this.postPayload = {
       description: '',
       privacy: 0,
-
     };
   }
 
