@@ -8,7 +8,7 @@
       <div class="row feed-body">
         <div class="col-xl-8 col-xxl-9 col-lg-8">
 
-          <app-create-post></app-create-post>
+          <app-create-post (createdPostEvent)="addCreatedPost($event)"></app-create-post>
 
 
           <app-post-tile [posts]="posts"></app-post-tile>
