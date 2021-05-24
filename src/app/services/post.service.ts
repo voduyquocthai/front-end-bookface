@@ -37,6 +37,10 @@ export class PostService {
   deletePostById(postId: number): Observable<any> {
     return this.http.delete<any>(`${API_URL}/posts/delete/` + postId);
   }
+
+  getPostById(postId: number): Observable<PostModel>{
+    return this.http.get<PostModel>(`${API_URL}/posts/` + postId)
+  }
 }
 
 
