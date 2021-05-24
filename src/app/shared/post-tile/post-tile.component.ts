@@ -79,7 +79,9 @@ export class PostTileComponent implements OnInit {
   }
 
   onEditPost(){
-    this.editPost = this.editPostForm.value;
+    this.editPost.postId = this.editPostForm.get('id').value;
+    this.editPost.privacy = + this.editPostForm.get('privacy').value;
+    this.editPost.description = this.editPostForm.get('description').value;
     console.log(this.editPost);
     this.postService.updatePost(this.editPost).subscribe(
       (data) => {
