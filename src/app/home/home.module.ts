@@ -23,6 +23,8 @@ import {EmotionComponent} from '../shared/emotion/emotion.component';
 import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
+import {AdminComponent} from '../admin/admin.component';
+import {AuthGuard} from '../auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {UserHeaderComponent} from '../user/user-header/user-header.component';
     EmotionComponent,
     CommentComponent,
     CreatePostComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    AdminComponent
   ],
   exports: [
     SideBarComponent
@@ -59,6 +62,6 @@ import {UserHeaderComponent} from '../user/user-header/user-header.component';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }]
+  },AuthGuard]
 })
 export class HomeModule { }

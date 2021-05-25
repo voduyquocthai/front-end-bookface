@@ -43,4 +43,20 @@ export class UsersService {
   accept(friendShip: Friend): Observable<Friend> {
     return this.http.post<Friend>(`${API_URL}/friend/add-accept`, friendShip);
   }
+
+  getAllUserActivated(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + '/admin/user-activated')
+  }
+
+  getAllUserBlocked(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + '/admin/user-blocked')
+  }
+
+  blockAUser(id: string): Observable<User> {
+    return this.http.get<User>(API_URL + `/admin/block/${id}`)
+  }
+
+  unBlockAUser(id: string): Observable<User> {
+    return this.http.get(API_URL + `/admin/unblock/${id}`)
+  }
 }

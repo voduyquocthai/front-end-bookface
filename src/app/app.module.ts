@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -29,6 +29,8 @@ import { FriendRequestSideBarComponent } from './shared/friend-request-side-bar/
 import { EmotionComponent } from './shared/emotion/emotion.component';
 import { CommentComponent } from './shared/comment/comment.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import { AdminComponent } from './admin/admin.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -56,8 +58,10 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     ToastrModule.forRoot(),
     NgbModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
