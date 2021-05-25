@@ -42,18 +42,19 @@ import {UserHeaderComponent} from '../user/user-header/user-header.component';
   exports: [
     SideBarComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    CKEditorModule,
-    NgbModule,
-  ],
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireStorageModule,
+        AngularFireDatabaseModule,
+        CKEditorModule,
+        NgbModule,
+        AppModule,
+    ],
 
   providers: [{
     provide: HTTP_INTERCEPTORS,

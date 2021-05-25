@@ -29,6 +29,7 @@ import { FriendRequestSideBarComponent } from './shared/friend-request-side-bar/
 import { EmotionComponent } from './shared/emotion/emotion.component';
 import { CommentComponent } from './shared/comment/comment.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
+    MutualFriendComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,8 +66,9 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     useClass: TokenInterceptor,
     multi: true
   }],
-  exports: [
-  ],
+    exports: [
+        MutualFriendComponent
+    ],
 
   bootstrap: [AppComponent]
 })
