@@ -16,10 +16,10 @@ import {throwError} from 'rxjs';
 export class EmotionComponent implements OnInit {
 
   @Input() post: PostModel;
-
+  liked: boolean;
+  hearted: boolean;
 
   emotionPayload: EmotionPayload;
-  isLoggedIn: boolean;
   constructor(private emotionService: EmotionService,
               private authService: AuthService,
               private postService: PostService,
@@ -27,7 +27,6 @@ export class EmotionComponent implements OnInit {
 
     this.emotionPayload = {
     };
-    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
     }
 
 
@@ -37,10 +36,12 @@ export class EmotionComponent implements OnInit {
 
   onLikePost() {
     this.emotionPayload.emotionType = EmotionType.LIKE;
+
     this.vote();
   }
     onHeartPost() {
     this.emotionPayload.emotionType = EmotionType.HEART;
+
     this.vote();
     }
 
@@ -57,6 +58,8 @@ export class EmotionComponent implements OnInit {
   private updateEmotionDetails() {
     this.postService.getPostById(this.post.id).subscribe(post => {
       this.post = post;
+      this.liked = this.post.liked;
+      this.hearted = this.post.hearted;
     });
   }
 }
