@@ -19,32 +19,34 @@ export class EmotionComponent implements OnInit {
 
 
   emotionPayload: EmotionPayload;
+  isLoggedIn: boolean;
   constructor(private emotionService: EmotionService,
               private authService: AuthService,
-              private postService: PostService, private toastr: ToastrService) {
+              private postService: PostService,
+              private toastr: ToastrService) {
 
     this.emotionPayload = {
-      emotionType: undefined,
-      postId: undefined
     };
-  }
+    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
+    }
+
 
   ngOnInit(): void {
     this.updateEmotionDetails();
   }
 
-  uplikePost() {
+  onLikePost() {
     this.emotionPayload.emotionType = EmotionType.LIKE;
     this.vote();
   }
-    upheartPost() {
+    onHeartPost() {
     this.emotionPayload.emotionType = EmotionType.HEART;
     this.vote();
     }
 
   private vote() {
     this.emotionPayload.postId = this.post.id;
-    this.emotionService.emotion(this.emotionPayload).subscribe(() => {
+    this.emotionService.sendEmotion(this.emotionPayload).subscribe(() => {
       this.updateEmotionDetails();
     }, error => {
       this.toastr.error(error.error.message);
@@ -53,7 +55,8 @@ export class EmotionComponent implements OnInit {
   }
 
   private updateEmotionDetails() {
-    this.postService.getAllPostsByUserId(this.post.id).subscribe(post => {
+    this.postService.getPostById(this.post.id).subscribe(post => {
+      this.post = post;
     });
   }
 }
