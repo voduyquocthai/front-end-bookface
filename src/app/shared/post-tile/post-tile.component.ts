@@ -29,7 +29,7 @@ export class PostTileComponent implements OnInit {
       description: new FormControl(Validators.required),
     }
   );
-  editPost: PostPayload;
+  editPost: PostPayload = {};
   deletePost: PostModel;
 
 

@@ -14,7 +14,7 @@ export class EmotionService {
 
   constructor(private http: HttpClient) { }
 
-  emotion(emotionPayload: EmotionPayload): Observable<any> {
+  sendEmotion(emotionPayload: EmotionPayload): Observable<any> {
     return this.http.post(`${API_URL}/emotions`, emotionPayload);
   }
 }
