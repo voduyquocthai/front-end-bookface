@@ -16,35 +16,38 @@ import {throwError} from 'rxjs';
 export class EmotionComponent implements OnInit {
 
   @Input() post: PostModel;
-
+  liked: boolean;
+  hearted: boolean;
 
   emotionPayload: EmotionPayload;
   constructor(private emotionService: EmotionService,
               private authService: AuthService,
-              private postService: PostService, private toastr: ToastrService) {
+              private postService: PostService,
+              private toastr: ToastrService) {
 
     this.emotionPayload = {
-      emotionType: undefined,
-      postId: undefined
     };
-  }
+    }
+
 
   ngOnInit(): void {
     this.updateEmotionDetails();
   }
 
-  uplikePost() {
+  onLikePost() {
     this.emotionPayload.emotionType = EmotionType.LIKE;
+
     this.vote();
   }
-    upheartPost() {
+    onHeartPost() {
     this.emotionPayload.emotionType = EmotionType.HEART;
+
     this.vote();
     }
 
   private vote() {
     this.emotionPayload.postId = this.post.id;
-    this.emotionService.emotion(this.emotionPayload).subscribe(() => {
+    this.emotionService.sendEmotion(this.emotionPayload).subscribe(() => {
       this.updateEmotionDetails();
     }, error => {
       this.toastr.error(error.error.message);
@@ -53,7 +56,10 @@ export class EmotionComponent implements OnInit {
   }
 
   private updateEmotionDetails() {
-    this.postService.getAllPostsByUserId(this.post.id).subscribe(post => {
+    this.postService.getPostById(this.post.id).subscribe(post => {
+      this.post = post;
+      this.liked = this.post.liked;
+      this.hearted = this.post.hearted;
     });
   }
 }

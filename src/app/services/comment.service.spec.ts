@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EmotionService } from './emotion.service';
+import { CommentService } from './comment.service';
 
-describe('EmotionService', () => {
-  let service: EmotionService;
+describe('CommentService', () => {
+  let service: CommentService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EmotionService);
+    service = TestBed.inject(CommentService);
   });
 
   it('should be created', () => {
