@@ -1,6 +1,6 @@
 import {EmotionType} from './emotion-type';
 
 export interface EmotionPayload {
-  emotionType: EmotionType;
-  postId: number;
+  emotionType?: EmotionType;
+  postId?: number;
 }
