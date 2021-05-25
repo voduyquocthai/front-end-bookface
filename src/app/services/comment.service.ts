@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CommentPayload} from "./comment-payload";
+import {CommentModel} from "../model/component/comment-model";
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +24,12 @@ export class CommentService {
   getAllCommentForUser(userId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/comments/by-user/` + userId)
   }
-  createComment(commentPayload: CommentPayload): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/comments/create`, commentPayload)
+  createComment(comment: CommentModel): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/comments/create`, comment)
   }
 
-  updateComment(commentPayload: CommentPayload): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/comments/update`, commentPayload)
+  updateComment(comment: CommentModel): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/comments/update`, comment)
   }
 
   deleteComment(commentId: number): Observable<any> {

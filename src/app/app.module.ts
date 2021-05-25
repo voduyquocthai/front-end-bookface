@@ -29,8 +29,6 @@ import { FriendRequestSideBarComponent } from './shared/friend-request-side-bar/
 import { EmotionComponent } from './shared/emotion/emotion.component';
 import { CommentComponent } from './shared/comment/comment.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
-import { CreateCommentComponent } from './component/create-comment/create-comment.component';
-import { ViewCommnetComponent } from './component/view-commnet/view-commnet.component';
 
 
 @NgModule({
@@ -40,8 +38,6 @@ import { ViewCommnetComponent } from './component/view-commnet/view-commnet.comp
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
-    CreateCommentComponent,
-    ViewCommnetComponent,
   ],
   imports: [
     BrowserModule,
