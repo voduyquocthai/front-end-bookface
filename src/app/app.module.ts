@@ -31,6 +31,7 @@ import { CommentComponent } from './shared/comment/comment.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { AdminComponent } from './admin/admin.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { MemberComponent } from './admin/member/member.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
+    MemberComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     multi: true
   }],
   exports: [
+    MemberComponent
   ],
 
   bootstrap: [AppComponent]

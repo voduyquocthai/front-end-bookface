@@ -4,7 +4,6 @@ import {environment} from '../../environments/environment';
 import {User} from '../user/user';
 import {UsersService} from '../user/service/users.service';
 
-const API_URL = `${environment.apiUrl}`;
 
 @Component({
   selector: 'app-admin',
@@ -22,7 +21,6 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUserActivated();
-
   }
 
   getAllUserActivated() {
@@ -39,9 +37,5 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  blockAUser(id: string) {
-    return this.userService.blockAUser(id).subscribe(value => {
-      this.userActivated = value;
-    })
-  }
+
 }

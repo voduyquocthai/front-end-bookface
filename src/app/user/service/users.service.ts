@@ -52,7 +52,7 @@ export class UsersService {
     return this.http.get<User[]>(API_URL + '/admin/user-blocked')
   }
 
-  blockAUser(id: string): Observable<User[]> {
+  blockAUser(id: number): Observable<User[]> {
     return this.http.get<User[]>(API_URL + `/admin/user-block/${id}`)
   }
 
