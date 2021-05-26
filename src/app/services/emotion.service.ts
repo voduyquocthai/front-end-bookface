@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {EmotionPayload} from '../shared/emotion/emotion-payload';
+import {EmotionPayload} from '../shared/emotions/emotion/emotion-payload';
 import {environment} from '../../environments/environment';
 
 const API_URL = `${environment.apiUrl}`;
