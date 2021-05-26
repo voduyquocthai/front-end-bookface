@@ -24,6 +24,7 @@ import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
 import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotion-comment.component";
+import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotio
     EmotionCommentComponent,
     CommentComponent,
     CreatePostComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    MutualFriendComponent,
   ],
   exports: [
     SideBarComponent
@@ -54,8 +56,7 @@ import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotio
         AngularFireStorageModule,
         AngularFireDatabaseModule,
         CKEditorModule,
-        NgbModule,
-        AppModule,
+        NgbModule
     ],
 
   providers: [{
