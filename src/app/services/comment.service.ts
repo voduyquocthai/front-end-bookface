@@ -17,6 +17,10 @@ export class CommentService {
     return this.http.get<any>(`${this.apiUrl}/comments`)
   }
 
+  getCommentById(commentId: number): Observable<CommentModel> {
+    return this.http.get<any>(`${this.apiUrl}/comments/` + commentId)
+  }
+
   getAllCommentForPost(postId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/comments/by-post/`+ postId)
   }
