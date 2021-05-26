@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {User} from '../user/user';
 import {UsersService} from '../user/service/users.service';
+import {LocalStorageService} from 'ngx-webstorage';
 
 
 @Component({
@@ -15,12 +16,24 @@ export class AdminComponent implements OnInit {
 
   userActivated: User[];
   userBlocked: User[];
-
-  constructor(private userService: UsersService) {
+  stoMes: User[];
+  isAdmin: boolean;
+  idAdmin: number;
+  constructor(private userService: UsersService,
+              private localStorage: LocalStorageService) {
+    this.idAdmin = this.localStorage.retrieve('userId')
   }
 
   ngOnInit(): void {
     this.getAllUserActivated();
+  }
+
+  event() {
+   this.getAllUserActivated()
+  }
+
+  eventBlock() {
+    this.getAllUserBlocked()
   }
 
   getAllUserActivated() {
@@ -36,6 +49,5 @@ export class AdminComponent implements OnInit {
       console.log(this.userBlocked);
     });
   }
-
 
 }
