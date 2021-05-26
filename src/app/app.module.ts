@@ -21,13 +21,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FriendComponent } from './user/friend/friend.component';
 import {TokenInterceptor} from '../token-interceptor';
 import {HomeModule} from './home/home.module';
-import { PostTileComponent } from './shared/post-tile/post-tile.component';
-import { FriendRequestSideBarComponent } from './shared/friend-request-side-bar/friend-request-side-bar.component';
-import { EmotionComponent } from './shared/emotion/emotion.component';
-import { CommentComponent } from './shared/comment/comment.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 
 

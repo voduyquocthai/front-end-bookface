@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostModel} from '../../post/post-model';
+import {PostModel} from '../../../post/post-model';
 import {EmotionPayload} from './emotion-payload';
-import {EmotionService} from '../../services/emotion.service';
-import {AuthService} from '../../auth/auth.service';
-import {PostService} from '../../services/post.service';
+import {EmotionService} from '../../../services/emotion.service';
+import {AuthService} from '../../../auth/auth.service';
+import {PostService} from '../../../services/post.service';
 import {ToastrService} from 'ngx-toastr';
 import {EmotionType} from './emotion-type';
 import {throwError} from 'rxjs';
