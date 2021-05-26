@@ -16,13 +16,13 @@ import {TokenInterceptor} from '../../token-interceptor';
 import {SideBarComponent} from '../shared/side-bar/side-bar.component';
 import {HomeComponent} from './home.component';
 import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
-import {AppModule} from '../app.module';
 import {PostTileComponent} from '../shared/post-tile/post-tile.component';
 import {FriendRequestSideBarComponent} from '../shared/friend-request-side-bar/friend-request-side-bar.component';
-import {EmotionComponent} from '../shared/emotion/emotion.component';
+import {EmotionComponent} from '../shared/emotions/emotion/emotion.component';
 import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
+import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotion-comment.component";
 import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.component';
 import {SearchFriendComponent} from '../user/search-friend/search-friend.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
@@ -38,6 +38,7 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     PostTileComponent,
     FriendRequestSideBarComponent,
     EmotionComponent,
+    EmotionCommentComponent,
     CommentComponent,
     CreatePostComponent,
     UserHeaderComponent,

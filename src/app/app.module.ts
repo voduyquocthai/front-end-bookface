@@ -46,7 +46,6 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     ToastrModule.forRoot(),
     NgbModule,
     BrowserAnimationsModule,
-    HomeModule
   ],
 
   providers: [{
