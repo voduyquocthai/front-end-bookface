@@ -43,4 +43,8 @@ export class UsersService {
   accept(friendShip: Friend): Observable<Friend> {
     return this.http.post<Friend>(`${API_URL}/friend/add-accept`, friendShip);
   }
+
+  getMutualFriends(id1: number, id2: number): Observable<User[]> {
+    return this.http.get<User[]>(`${API_URL}/users/mutual-friends/${id1}/${id2}`);
+  }
 }
