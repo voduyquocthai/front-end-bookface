@@ -30,7 +30,6 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
-    MutualFriendComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +48,6 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     ToastrModule.forRoot(),
     NgbModule,
     BrowserAnimationsModule,
-    HomeModule
   ],
 
   providers: [{
@@ -58,7 +56,6 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     multi: true
   }],
     exports: [
-        MutualFriendComponent
     ],
 
   bootstrap: [AppComponent]
