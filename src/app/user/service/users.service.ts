@@ -47,4 +47,8 @@ export class UsersService {
   getMutualFriends(id1: number, id2: number): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users/mutual-friends/${id1}/${id2}`);
   }
+
+  searchUserByKey(key: string, page: number): Observable<any> {
+    return this.http.get<any>(`${API_URL}/users/search?key=${key}&page=${page}&size=8`);
+  }
 }

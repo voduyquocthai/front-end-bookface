@@ -13,14 +13,17 @@ declare var $: any;
   styleUrls: ['./user-header.component.css']
 })
 export class UserHeaderComponent implements OnInit {
-  @Input() user: User = {};
+  @Input() user: User;
+  myUser: User = {};
   isMe = false;
-  @Input() id = -1;
+  id = -1;
   friendShip: Friend;
 
   constructor(private localStorage: LocalStorageService,
               private activatedRoute: ActivatedRoute,
               private userService: UsersService) {
+    this.myUser = this.user;
+
     this.activatedRoute.paramMap.subscribe(param => {
       this.id = +param.get('id');
       if (this.id === localStorage.retrieve('userId')) {

@@ -13,7 +13,6 @@ export class FriendComponent implements OnInit {
   friendList: User[] = [];
   @Input() id = -1;
   user: User = {};
-  check: boolean;
 
   constructor(private userService: UsersService,
               private activatedRoute: ActivatedRoute) {
@@ -21,7 +20,6 @@ export class FriendComponent implements OnInit {
       this.id = +param.get('id');
       this.getAllFriend(this.id);
       this.getUser(this.id);
-      this.check = true;
     });
   }
 

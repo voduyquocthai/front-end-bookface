@@ -23,6 +23,9 @@ import {EmotionComponent} from '../shared/emotion/emotion.component';
 import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
+import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.component';
+import {SearchFriendComponent} from '../user/search-friend/search-friend.component';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -37,24 +40,26 @@ import {UserHeaderComponent} from '../user/user-header/user-header.component';
     EmotionComponent,
     CommentComponent,
     CreatePostComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    MutualFriendComponent,
+    SearchFriendComponent
   ],
   exports: [
     SideBarComponent
   ],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireStorageModule,
-        AngularFireDatabaseModule,
-        CKEditorModule,
-        NgbModule,
-        AppModule,
-    ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    CKEditorModule,
+    NgbModule,
+    InfiniteScrollModule
+  ],
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
