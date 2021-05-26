@@ -7,4 +7,8 @@ export interface CommentModel {
   userId?: number;
   username?: string;
   userAvatar?: string;
+  likeCount? : number ;
+  heartCount? : number;
+  liked?: boolean;
+  hearted?: boolean;
 }

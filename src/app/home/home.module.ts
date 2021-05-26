@@ -19,10 +19,11 @@ import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
 import {AppModule} from '../app.module';
 import {PostTileComponent} from '../shared/post-tile/post-tile.component';
 import {FriendRequestSideBarComponent} from '../shared/friend-request-side-bar/friend-request-side-bar.component';
-import {EmotionComponent} from '../shared/emotion/emotion.component';
+import {EmotionComponent} from '../shared/emotions/emotion/emotion.component';
 import {CommentComponent} from '../shared/comment/comment.component';
 import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
+import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotion-comment.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {UserHeaderComponent} from '../user/user-header/user-header.component';
     PostTileComponent,
     FriendRequestSideBarComponent,
     EmotionComponent,
+    EmotionCommentComponent,
     CommentComponent,
     CreatePostComponent,
     UserHeaderComponent
