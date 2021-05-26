@@ -27,6 +27,8 @@ export class PostTileComponent implements OnInit {
       id: new FormControl(Validators.required),
       privacy: new FormControl(Validators.required),
       description: new FormControl(Validators.required),
+      likeCount : new FormControl(Validators.required),
+      heartCount : new FormControl(Validators.required),
     }
   );
   editPost: PostPayload = {};
@@ -67,6 +69,8 @@ export class PostTileComponent implements OnInit {
         id: new FormControl(post.id, Validators.required),
         privacy: new FormControl(post.privacy, Validators.required),
         description: new FormControl(post.description, Validators.required),
+        likeCount: new FormControl(post.likeCount, Validators.required),
+        heartCount: new FormControl(post.heartCount, Validators.required),
       });
       button.setAttribute('data-bs-target', '#editPostModal');
     }
@@ -82,6 +86,8 @@ export class PostTileComponent implements OnInit {
     this.editPost.postId = this.editPostForm.get('id').value;
     this.editPost.privacy = + this.editPostForm.get('privacy').value;
     this.editPost.description = this.editPostForm.get('description').value;
+    this.editPost.likeCount = + this.editPostForm.get('likeCount').value;
+    this.editPost.heartCount = + this.editPostForm.get('heartCount').value;
     console.log(this.editPost);
     this.postService.updatePost(this.editPost).subscribe(
       (data) => {
