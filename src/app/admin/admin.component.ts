@@ -38,4 +38,10 @@ export class AdminComponent implements OnInit {
       console.log(this.userBlocked);
     });
   }
+
+  blockAUser(id: string) {
+    return this.userService.blockAUser(id).subscribe(value => {
+      this.userActivated = value;
+    })
+  }
 }
