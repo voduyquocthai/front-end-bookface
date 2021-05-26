@@ -20,8 +20,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../token-interceptor';
 import {HomeModule} from './home/home.module';
 import { ViewPostComponent } from './post/view-post/view-post.component';
-import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.component';
-
 
 @NgModule({
   declarations: [
@@ -29,8 +27,7 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    ViewPostComponent,
-    MutualFriendComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +55,6 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     multi: true
   }],
     exports: [
-        MutualFriendComponent
     ],
 
   bootstrap: [AppComponent]
