@@ -4,6 +4,7 @@ import {User} from '../user';
 import {UsersService} from '../service/users.service';
 import {ActivatedRoute} from '@angular/router';
 import {UploadFileService} from '../../upload/upload-file.service';
+import {LocalStorageService} from 'ngx-webstorage';
 
 declare var $: any;
 
@@ -32,11 +33,14 @@ export class UpdateProfileComponent implements OnInit {
 
   constructor(private userService: UsersService,
               private activatedRoute: ActivatedRoute,
-              private uploadService: UploadFileService) {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
-      this.id = +paramMap.get('id');
-      this.getUser(this.id);
-    });
+              private uploadService: UploadFileService,
+              private localStorage: LocalStorageService) {
+    if (localStorage.retrieve('userId')){
+      this.activatedRoute.paramMap.subscribe(paramMap => {
+        this.id = +paramMap.get('id');
+        this.getUser(this.id);
+      });
+    }
   }
 
   ngOnInit(): void {
