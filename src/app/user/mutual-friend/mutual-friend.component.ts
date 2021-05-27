@@ -10,14 +10,15 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class MutualFriendComponent implements OnInit {
   mutualFriend: User[] = [];
-  @Input()userId = -1;
+  @Input() userId = -1;
+  flag: boolean;
   constructor(private userService: UsersService,
-              private localStorage: LocalStorageService) {
-    const currentUser = this.localStorage.retrieve('userId');
-    this.getAllMutualFriends(this.userId, currentUser);
-  }
+              private localStorage: LocalStorageService) {}
 
   ngOnInit(): void {
+    const currentUser = this.localStorage.retrieve('userId');
+    if (this.userId === currentUser) this.flag = true;
+    this.getAllMutualFriends(this.userId, currentUser);
   }
 
   getAllMutualFriends(id1: number, id2: number) {

@@ -18,10 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../token-interceptor';
-import {HomeModule} from './home/home.module';
 import { ViewPostComponent } from './post/view-post/view-post.component';
-import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.component';
-
 
 @NgModule({
   declarations: [
@@ -29,7 +26,7 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    ViewPostComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
