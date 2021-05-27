@@ -27,7 +27,11 @@ import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotio
 import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.component';
 import {AdminComponent} from '../admin/admin.component';
 import {AuthGuard} from '../auth/auth.guard';
+import {AdminModule} from '../admin/admin.module';
+import {Routes} from '@angular/router';
+import {MemberComponent} from '../admin/member/member.component';
 
+const routes: Routes = []
 @NgModule({
   declarations: [
     HomeComponent,
@@ -44,6 +48,7 @@ import {AuthGuard} from '../auth/auth.guard';
     CreatePostComponent,
     UserHeaderComponent,
     MutualFriendComponent,
+
   ],
   exports: [
     SideBarComponent
@@ -58,7 +63,8 @@ import {AuthGuard} from '../auth/auth.guard';
         AngularFireStorageModule,
         AngularFireDatabaseModule,
         CKEditorModule,
-        NgbModule
+        NgbModule,
+        AdminModule
     ],
 
   providers: [{

@@ -80,6 +80,7 @@ export class AuthService {
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');
     this.localStorage.clear('userId');
+    this.localStorage.clear('userRole');
   }
 
   getUserName() {

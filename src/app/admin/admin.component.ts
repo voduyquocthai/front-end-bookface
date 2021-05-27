@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
   userActivated: User[];
   userBlocked: User[];
   stoMes: User[];
+  users: User[];
   isAdmin: boolean;
   idAdmin: number;
   constructor(private userService: UsersService,
@@ -25,11 +26,11 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllUserActivated();
+    this.getAllUsers();
   }
 
   event() {
-   this.getAllUserActivated()
+   this.getAllUsers()
   }
 
   eventBlock() {
@@ -39,10 +40,15 @@ export class AdminComponent implements OnInit {
   getAllUserActivated() {
     return this.userService.getAllUserActivated().subscribe(value => {
       this.userActivated = value;
-      console.log(this.userActivated);
     });
   }
 
+
+  getAllUsers(){
+    return this.userService.getAllUsers().subscribe(value => {
+      this.users = value;
+    });
+  }
   getAllUserBlocked() {
     return this.userService.getAllUserBlocked().subscribe(value => {
       this.userBlocked = value;

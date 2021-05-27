@@ -10,7 +10,7 @@ import {UsersService} from '../../user/service/users.service';
 export class MemberComponent implements OnInit {
 
 
-  @Input() userActivated: User;
+  @Input() user: User;
   @Input() userBlocked: User;
 
   @Output() eventEmitter: EventEmitter<any> = new EventEmitter<any>();
@@ -20,9 +20,17 @@ export class MemberComponent implements OnInit {
   }
 
   blockAUser() {
-    return this.userService.blockAUser(this.userActivated.userId).subscribe(value => {
+    return this.userService.blockAUser(this.user.userId).subscribe(value => {
+      this.eventEmitter.emit()
+      console.log();
+    })
+
+  }
+
+
+  unblockAUser() {
+    return this.userService.unBlockAUser(this.user.userId).subscribe(value => {
       this.eventEmitter.emit()
     })
   }
-
 }

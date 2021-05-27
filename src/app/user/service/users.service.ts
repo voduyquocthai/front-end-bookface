@@ -55,12 +55,15 @@ export class UsersService {
   getAllUserBlocked(): Observable<User[]> {
     return this.http.get<User[]>(API_URL + '/admin/user-blocked')
   }
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + '/admin/users')
+  }
 
   blockAUser(id: number): Observable<User[]> {
     return this.http.get<User[]>(API_URL + `/admin/user-block/${id}`)
   }
 
-  unBlockAUser(id: string): Observable<User> {
-    return this.http.get(API_URL + `/admin/unblock/${id}`)
+  unBlockAUser(id: number): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + `/admin/user-unblock/${id}`)
   }
 }

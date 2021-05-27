@@ -21,9 +21,7 @@ import {TokenInterceptor} from '../token-interceptor';
 import {HomeModule} from './home/home.module';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.component';
-import { AdminComponent } from './admin/admin.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import { MemberComponent } from './admin/member/member.component';
 
 
 @NgModule({
@@ -33,8 +31,6 @@ import { MemberComponent } from './admin/member/member.component';
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
-    MemberComponent,
-    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +40,6 @@ import { MemberComponent } from './admin/member/member.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     CKEditorModule,

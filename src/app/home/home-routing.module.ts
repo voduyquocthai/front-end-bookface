@@ -5,7 +5,6 @@ import {UserProfileComponent} from '../user/user-profile/user-profile.component'
 import {FriendComponent} from '../user/friend/friend.component';
 import {HomeComponent} from './home.component';
 import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
-import {AdminComponent} from '../admin/admin.component';
 import {AuthGuard} from '../auth/auth.guard';
 
 
@@ -32,7 +31,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-        component: AdminComponent,
+        loadChildren: () => import('../admin/admin.module').then(module => module.AdminModule),
         canActivate: [AuthGuard]
       }
     ]
