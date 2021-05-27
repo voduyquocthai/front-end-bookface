@@ -9,6 +9,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostPayload} from '../../post/create-post/post.payload';
 import {validateConstructorDependencies} from '@angular/compiler-cli/src/ngtsc/annotations/src/util';
+import {UploadFileService} from '../../upload/upload-file.service';
 
 @Component({
   selector: 'app-post-tile',
@@ -33,12 +34,15 @@ export class PostTileComponent implements OnInit {
   );
   editPost: PostPayload = {};
   deletePost: PostModel;
+  imgUrl: string = '';
 
 
   constructor(private router: Router,
               private postService: PostService,
               private authService: AuthService,
-              private userService: UsersService) {
+              private userService: UsersService,
+              private uploadService: UploadFileService,
+              ) {
 
   }
 
@@ -86,6 +90,12 @@ export class PostTileComponent implements OnInit {
     this.editPost.postId = this.editPostForm.get('id').value;
     this.editPost.privacy = + this.editPostForm.get('privacy').value;
     this.editPost.description = this.editPostForm.get('description').value;
+    this.editPost.description += `
+    <div class="card-body d-block p-0 mb-3">
+  <div class="row ps-2 pe-2">
+    <div class="col-sm-12 p-1"><img src="${this.imgUrl}" class="rounded-3 w-100" alt="image"></div>
+  </div>
+</div>`;
     this.editPost.likeCount = + this.editPostForm.get('likeCount').value;
     this.editPost.heartCount = + this.editPostForm.get('heartCount').value;
     console.log(this.editPost);
@@ -98,6 +108,7 @@ export class PostTileComponent implements OnInit {
       }
     )
     this.editPostForm.reset();
+    this.imgUrl = '';
   }
 
   onDeletePost() {
@@ -114,4 +125,8 @@ export class PostTileComponent implements OnInit {
   }
 
 
+  async showPreviewAndSubmit(event) {
+    this.uploadService.showPreview(event);
+    this.imgUrl = await this.uploadService.submit();
+  }
 }

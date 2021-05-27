@@ -21,6 +21,8 @@ import {TokenInterceptor} from '../token-interceptor';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 
+import { ChatBoxComponent } from './chat-box/chat-box.component';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
+    ChatBoxComponent,
   ],
   imports: [
     BrowserModule,
