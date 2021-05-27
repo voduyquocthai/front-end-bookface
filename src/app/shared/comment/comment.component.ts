@@ -88,6 +88,12 @@ export class CommentComponent implements OnInit {
     if (mode === 'edit') {
       this.editComment = comment;
       console.log(this.editComment);
+      this.editCommentForm = new FormGroup({
+        id: new FormControl(this.editComment.id),
+        text: new FormControl(this.editComment.text),
+        likeCount: new FormControl(this.editComment.likeCount),
+        heartCount: new FormControl(this.editComment.heartCount)
+      });
       button.setAttribute('data-bs-target', '#editCommentModal');
     }
     if (mode === 'delete') {
