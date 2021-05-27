@@ -51,4 +51,23 @@ export class UsersService {
   searchUserByKey(key: string, page: number): Observable<any> {
     return this.http.get<any>(`${API_URL}/users/search?key=${key}&page=${page}&size=8`);
   }
+
+  getAllUserActivated(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + '/admin/user-activated')
+  }
+
+  getAllUserBlocked(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + '/admin/user-blocked')
+  }
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + '/admin/users')
+  }
+
+  blockAUser(id: number): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + `/admin/user-block/${id}`)
+  }
+
+  unBlockAUser(id: number): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + `/admin/user-unblock/${id}`)
+  }
 }

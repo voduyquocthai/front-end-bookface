@@ -19,6 +19,7 @@ export class AuthService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();
   @Output() userId: EventEmitter<number> = new EventEmitter();
+  @Output() userRole: EventEmitter<string> = new EventEmitter();
 
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
@@ -40,9 +41,11 @@ export class AuthService {
       this.localStorage.store('refreshToken', data.refreshToken);
       this.localStorage.store('expiresAt', data.expiresAt);
       this.localStorage.store('userId', data.userId);
+      this.localStorage.store('userRole', data.userRole)
       this.loggedIn.emit(true);
       this.username.emit(data.username);
       this.userId.emit(data.userId);
+      this.userRole.emit(data.userRole);
       return true;
     }));
   }
@@ -77,6 +80,7 @@ export class AuthService {
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');
     this.localStorage.clear('userId');
+    this.localStorage.clear('userRole');
   }
 
   getUserName() {
@@ -89,6 +93,10 @@ export class AuthService {
 
   getRefreshToken() {
     return this.localStorage.retrieve('refreshToken');
+  }
+
+  getRoleUser() {
+    return this.localStorage.retrieve('userRole')
   }
 
   isLoggedIn(): boolean {
