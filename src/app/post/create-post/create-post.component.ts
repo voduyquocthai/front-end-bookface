@@ -14,6 +14,7 @@ import {AuthService} from '../../auth/auth.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {User} from '../../user/user';
 import {PostModel} from '../post-model';
+import {UploadFileService} from '../../upload/upload-file.service';
 
 
 
@@ -28,11 +29,13 @@ export class CreatePostComponent implements OnInit {
   createPostForm: FormGroup;
   postPayload: PostPayload;
   postCreated: PostModel = {};
+  imgUrl: string = '';
 
   constructor(private router: Router,
               private postService: PostService,
               private userService: UsersService,
               private authService: AuthService,
+              private uploadService: UploadFileService,
               private route: Router) {
     this.postPayload = {
       description: '',
@@ -59,18 +62,17 @@ export class CreatePostComponent implements OnInit {
   createPost() {
     this.postPayload.privacy = + this.createPostForm.get('privacy').value;
     this.postPayload.description = this.createPostForm.get('description').value;
+    this.postPayload.description += `
+    <div class="card-body d-block p-0 mb-3">
+  <div class="row ps-2 pe-2">
+    <div class="col-sm-12 p-1"><img src="${this.imgUrl}" class="rounded-3 w-100" alt="image"></div>
+  </div>
+</div>`;
     this.postPayload.likeCount = 0;
     this.postPayload.heartCount = 0;
 
     this.postService.createPost(this.postPayload).subscribe((data) => {
-      this.postCreated = {
-        description: this.postPayload.description,
-        userAvatar: this.currentUser.avatar,
-        userName: this.currentUser.username,
-        likeCount: 0,
-        heartCount: 0,
-        commentCount: 0
-      }
+      this.postCreated = data;
       this.onCreatePost(this.postCreated);
       this.createPostForm.reset();
       const closeBtn = document.getElementById('close-btn');
@@ -78,6 +80,7 @@ export class CreatePostComponent implements OnInit {
     }, error => {
       console.log(error.message);
     });
+    this.imgUrl = '';
   }
 
   openCreatePostModal(){
@@ -97,5 +100,10 @@ export class CreatePostComponent implements OnInit {
         data => this.currentUser = data,
         error => console.log(error.message)
       );
+  }
+
+  async showPreviewAndSubmit(event) {
+    this.uploadService.showPreview(event);
+    this.imgUrl = await this.uploadService.submit();
   }
 }

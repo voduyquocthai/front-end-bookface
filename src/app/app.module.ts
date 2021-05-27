@@ -21,6 +21,7 @@ import {TokenInterceptor} from '../token-interceptor';
 import {HomeModule} from './home/home.module';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MutualFriendComponent } from './user/mutual-friend/mutual-friend.compon
     LoginComponent,
     SignupComponent,
     ViewPostComponent,
+    ChatBoxComponent,
   ],
   imports: [
     BrowserModule,

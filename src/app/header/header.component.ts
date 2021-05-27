@@ -15,10 +15,11 @@ export class HeaderComponent implements OnInit {
   userId: number;
   user: User = {};
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  //test chat
+  users: User[] = []
+  receiver: User = {}
 
-  ngOnInit() {
+  constructor(private authService: AuthService, private router: Router, private userService: UsersService) {
     this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
     this.authService.username.subscribe((data: string) => this.username = data);
     this.authService.userId.subscribe((data: number) => this.userId = data);
@@ -26,6 +27,19 @@ export class HeaderComponent implements OnInit {
     this.username = this.authService.getUserName();
     this.userId = this.authService.getUserId();
     this.getUser(this.username);
+    //test chat
+    this.userService.getAllFriend(this.userId).subscribe(
+      data => {
+        this.users = data;
+        this.receiver = this.users[0];
+      }
+
+    )
+  }
+
+  ngOnInit() {
+
+
   }
 
   goToUserProfile() {
