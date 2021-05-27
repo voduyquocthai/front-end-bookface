@@ -59,6 +59,8 @@ export class CreatePostComponent implements OnInit {
   createPost() {
     this.postPayload.privacy = + this.createPostForm.get('privacy').value;
     this.postPayload.description = this.createPostForm.get('description').value;
+    this.postPayload.likeCount = 0;
+    this.postPayload.heartCount = 0;
 
     this.postService.createPost(this.postPayload).subscribe((data) => {
       this.postCreated = {
