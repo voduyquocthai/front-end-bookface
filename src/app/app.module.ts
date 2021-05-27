@@ -19,6 +19,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../token-interceptor';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    ChatBoxComponent,
   ],
   imports: [
     BrowserModule,
