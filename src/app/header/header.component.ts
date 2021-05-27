@@ -21,14 +21,14 @@ export class HeaderComponent implements OnInit {
   receiver: User = {}
 
   constructor(private authService: AuthService, private router: Router, private userService: UsersService) {
-
-  }
-
-  ngOnInit() {
     this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
     this.authService.username.subscribe((data: string) => this.username = data);
     this.authService.userId.subscribe((data: number) => this.userId = data);
     this.authService.userRole.subscribe((data: string) => this.role = data);
+  }
+
+  ngOnInit() {
+
     this.isLoggedIn = this.authService.isLoggedIn();
     this.username = this.authService.getUserName();
     this.userId = this.authService.getUserId();

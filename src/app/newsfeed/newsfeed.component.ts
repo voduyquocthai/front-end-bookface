@@ -27,6 +27,6 @@ export class NewsfeedComponent implements OnInit {
   }
 
   addCreatedPost(createdPost: PostModel) {
-    this.posts.push(createdPost);
+    this.getAllPosts();
   }
 }
