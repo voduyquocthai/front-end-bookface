@@ -14,19 +14,22 @@
                [infiniteScrollThrottle]="throttle"
                (scrolled)="onScroll()"
           >
-            <ul class="notification-box">
-              <li *ngFor="let user of listUser" class="card-body">
+            <div class="notification-box mt-5">
+              <ng-container *ngFor="let user of listUser;" class="card-body p-2">
                 <div *ngIf="user.userId != currentUserId">
-                  <div class="d-flex align-items-center p-3 rounded-3 bg-lightblue theme-light-bg">
-                    <img [src]="user.avatar" alt="avatar" class="font-xssss w45 me-3">
-                    <h6 class="font-xss text-grey-900 text-grey-900 mb-0 mt-0 fw-500 lh-20"><strong><a
-                      [routerLink]="['/users/user-profile',user.userId]">{{user.username}}</a></strong>
+                  <div class="d-flex align-items-center h100 p-2 rounded-3 bg-lightblue theme-light-bg"
+                       style="margin: 10px">
+                    <img [src]="user.avatar" alt="avatar" class="font-xssss w75 h75 me-3 rounded-circle">
+                    <h6 class="font-xss text-grey-900 text-grey-900 mb-0 mt-0 fw-500 lh-20 cursor-pointer"><strong>
+                      <a style="padding-left: 0 !important"
+                         [routerLink]="['/users/user-profile',user.userId]">{{user.username}}</a></strong>
                       <app-mutual-friend [userId]="user.userId"></app-mutual-friend>
                     </h6>
+                    <app-friend-button [user]="user" [id]="user.userId"></app-friend-button>
                   </div>
                 </div>
-              </li>
-            </ul>
+              </ng-container>
+            </div>
           </div>
         </div>
       </div>

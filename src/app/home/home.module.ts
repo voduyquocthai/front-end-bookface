@@ -26,6 +26,7 @@ import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotio
 import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.component';
 import {SearchFriendComponent} from '../user/search-friend/search-friend.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { FriendButtonComponent } from '../user/friend-button/friend-button.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     CreatePostComponent,
     UserHeaderComponent,
     MutualFriendComponent,
-    SearchFriendComponent
+    SearchFriendComponent,
+    FriendButtonComponent,
   ],
   exports: [
     SideBarComponent

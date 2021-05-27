@@ -32,6 +32,10 @@ const routes: Routes = [
       {
         path: 'users/search/:key',
         component: SearchFriendComponent
+      },
+      {
+        path: 'users/list-mutual-friend/:id',
+        component: FriendComponent
       }
     ]
   }

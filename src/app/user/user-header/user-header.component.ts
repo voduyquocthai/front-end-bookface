@@ -22,8 +22,6 @@ export class UserHeaderComponent implements OnInit {
   constructor(private localStorage: LocalStorageService,
               private activatedRoute: ActivatedRoute,
               private userService: UsersService) {
-    this.myUser = this.user;
-
     this.activatedRoute.paramMap.subscribe(param => {
       this.id = +param.get('id');
       if (this.id === localStorage.retrieve('userId')) {
@@ -41,7 +39,6 @@ export class UserHeaderComponent implements OnInit {
   getFriendByDoubleId(id: number) {
     const senderId = this.localStorage.retrieve('userId');
     this.userService.getFriendByDoubleId(senderId, id).subscribe(value => {
-      console.log(value);
       this.friendShip = value;
     });
   }
