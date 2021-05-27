@@ -1,1 +1,1 @@
-<span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{mutualFriend.length}} mutual friends</span>
+<a *ngIf="!flag" [routerLink]="['/users/list-mutual-friend',userId]"><span class="d-block font-xssss fw-500 text-grey-500">{{mutualFriend.length}} mutual friends</span></a>

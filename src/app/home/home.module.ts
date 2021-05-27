@@ -16,7 +16,6 @@ import {TokenInterceptor} from '../../token-interceptor';
 import {SideBarComponent} from '../shared/side-bar/side-bar.component';
 import {HomeComponent} from './home.component';
 import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
-import {AppModule} from '../app.module';
 import {PostTileComponent} from '../shared/post-tile/post-tile.component';
 import {FriendRequestSideBarComponent} from '../shared/friend-request-side-bar/friend-request-side-bar.component';
 import {EmotionComponent} from '../shared/emotions/emotion/emotion.component';
@@ -25,13 +24,15 @@ import {CreatePostComponent} from '../post/create-post/create-post.component';
 import {UserHeaderComponent} from '../user/user-header/user-header.component';
 import {EmotionCommentComponent} from "../shared/emotions/emotion-comment/emotion-comment.component";
 import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.component';
+import {SearchFriendComponent} from '../user/search-friend/search-friend.component';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { FriendButtonComponent } from '../user/friend-button/friend-button.component';
 import {AdminComponent} from '../admin/admin.component';
 import {AuthGuard} from '../auth/auth.guard';
 import {AdminModule} from '../admin/admin.module';
 import {Routes} from '@angular/router';
 import {MemberComponent} from '../admin/member/member.component';
 
-const routes: Routes = []
 @NgModule({
   declarations: [
     HomeComponent,
@@ -48,24 +49,26 @@ const routes: Routes = []
     CreatePostComponent,
     UserHeaderComponent,
     MutualFriendComponent,
-
+    SearchFriendComponent,
+    FriendButtonComponent,
   ],
   exports: [
     SideBarComponent
   ],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireStorageModule,
-        AngularFireDatabaseModule,
-        CKEditorModule,
-        NgbModule,
-        AdminModule
-    ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    CKEditorModule,
+    NgbModule,
+    InfiniteScrollModule,
+    AdminModule
+  ],
 
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -6,6 +6,7 @@ export interface CommentModel {
   postId?: number;
   userId?: number;
   username?: string;
+  duration?: string;
   userAvatar?: string;
   likeCount? : number ;
   heartCount? : number;
