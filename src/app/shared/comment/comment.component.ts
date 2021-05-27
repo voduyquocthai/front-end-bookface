@@ -113,7 +113,7 @@ export class CommentComponent implements OnInit {
     this.commentService.updateComment(this.editComment).subscribe(
       response => {
         console.log(response);
-        document.getElementById("close-edit-btn").click();
+        document.getElementById("close-edit-comment-btn").click();
         this.getAllCommentForPost();
       },
       (error: HttpErrorResponse) => {
@@ -125,7 +125,7 @@ export class CommentComponent implements OnInit {
   deleteComment() {
     this.commentService.deleteComment(this.deletedComment.id).subscribe(
       () => {
-        document.getElementById("close-delete-btn").click();
+        document.getElementById("close-delete-comment-btn").click();
         this.getAllCommentForPost();
       },
       (error: HttpErrorResponse) => {
