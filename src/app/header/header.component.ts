@@ -57,5 +57,9 @@ export class HeaderComponent implements OnInit {
       this.user = user;
     });
   }
+
+  search(key: string) {
+    this.router.navigateByUrl('/users/search/' + key);
+  }
 }
 

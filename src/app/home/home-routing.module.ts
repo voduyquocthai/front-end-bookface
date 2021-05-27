@@ -5,6 +5,7 @@ import {UserProfileComponent} from '../user/user-profile/user-profile.component'
 import {FriendComponent} from '../user/friend/friend.component';
 import {HomeComponent} from './home.component';
 import {NewsfeedComponent} from '../newsfeed/newsfeed.component';
+import {SearchFriendComponent} from '../user/search-friend/search-friend.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,14 @@ const routes: Routes = [
         path: 'users/list-friend/:id',
         component:  FriendComponent
       },
+      {
+        path: 'users/search/:key',
+        component: SearchFriendComponent
+      },
+      {
+        path: 'users/list-mutual-friend/:id',
+        component: FriendComponent
+      }
     ]
   }
 ];
