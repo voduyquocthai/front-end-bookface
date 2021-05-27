@@ -47,6 +47,7 @@ export class CommentComponent implements OnInit {
   createComment() {
     this.commentModel.text = this.addCommentForm.get('text').value;
     this.commentModel.postId = this.post.id;
+    this.commentModel.userAvatar = this.post.userAvatar;
     this.commentService.createComment(this.commentModel).subscribe(
       data => {
         console.log('Created comment');
