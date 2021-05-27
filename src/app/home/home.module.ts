@@ -27,6 +27,11 @@ import {MutualFriendComponent} from '../user/mutual-friend/mutual-friend.compone
 import {SearchFriendComponent} from '../user/search-friend/search-friend.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { FriendButtonComponent } from '../user/friend-button/friend-button.component';
+import {AdminComponent} from '../admin/admin.component';
+import {AuthGuard} from '../auth/auth.guard';
+import {AdminModule} from '../admin/admin.module';
+import {Routes} from '@angular/router';
+import {MemberComponent} from '../admin/member/member.component';
 
 @NgModule({
   declarations: [
@@ -61,13 +66,14 @@ import { FriendButtonComponent } from '../user/friend-button/friend-button.compo
     AngularFireDatabaseModule,
     CKEditorModule,
     NgbModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    AdminModule
   ],
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }]
+  },AuthGuard]
 })
 export class HomeModule { }
