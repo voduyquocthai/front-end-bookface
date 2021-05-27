@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -19,6 +19,10 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from '../token-interceptor';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
+
+import { ChatBoxComponent } from './chat-box/chat-box.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    ChatBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,6 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     CKEditorModule,
@@ -45,7 +49,9 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     ToastrModule.forRoot(),
     NgbModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   providers: [{
     provide: HTTP_INTERCEPTORS,

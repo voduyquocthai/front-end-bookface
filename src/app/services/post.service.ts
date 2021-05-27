@@ -21,12 +21,12 @@ export class PostService {
     return this.http.get<Array<PostModel>>(`${API_URL}/posts`);
   }
 
-  createPost(postPayload: PostPayload): Observable<any> {
-    return this.http.post<any>(`${API_URL}/posts`, postPayload);
+  createPost(postPayload: PostPayload): Observable<PostModel> {
+    return this.http.post<PostModel>(`${API_URL}/posts`, postPayload);
   }
 
-  updatePost(postPayload: PostPayload): Observable<any> {
-    return this.http.put(`${API_URL}/posts/update`, postPayload);
+  updatePost(postPayload: PostPayload): Observable<PostModel> {
+    return this.http.put<PostModel>(`${API_URL}/posts/update`, postPayload);
   }
 
 

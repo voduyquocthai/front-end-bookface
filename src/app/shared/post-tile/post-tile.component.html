@@ -1,5 +1,5 @@
 <div id="main-container">
-  <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3" *ngFor="let post of posts.slice().reverse()">
+  <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3" *ngFor="let post of posts?.slice().reverse()">
     <div class="card-body p-0 d-flex">
       <figure class="avatar me-3 font-xssss"><img [src]="post?.userAvatar" alt="avatar" class="shadow-sm rounded-circle w45 h45"></figure>
       <a type="button" class="fw-700 text-grey-900 font-xsss mt-1" (click)="goToUserProfile(post.userId)">{{post?.userName}}<span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{post.duration}}</span></a>
@@ -45,6 +45,8 @@
           </select>
           <ckeditor [editor]="Editor" formControlName="description" >
           </ckeditor>
+          <img style="width: 100%" [src]="imgUrl">
+          <input type="file" id="file" accept="image/*" (change)="showPreviewAndSubmit($event)">
           <input type="hidden" formControlName="id">
           <input type="hidden" formControlName="likeCount">
           <input type="hidden" formControlName="heartCount">
