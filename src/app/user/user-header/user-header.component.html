@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="col-lg-12" id="friend">
   <div class="card w-100 border-0 p-0 bg-white shadow-xss rounded-xxl">
     <div class="card-body h250 p-0 rounded-xxl overflow-hidden m-3"><img src="https://img.wallpapersafari.com/desktop/1024/576/47/40/e8CiPB.jpg"
                                                                          alt="image"></div>
@@ -45,7 +45,7 @@
           <div *ngIf="friendShip && friendShip.status == true" style="text-align: center; width: 170px">
             <div
               class="d-none d-lg-block cursor-pointer  bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3 btn-outline-secondary "
-                 (click)="unFriend()">Unfriend
+                 (click)="openModal()">Unfriend
             </div>
           </div>
         </div>
@@ -99,6 +99,24 @@
           class="fw-700 me-sm-5 font-xssss text-grey-500 pt-3 pb-3 ls-1 d-inline-block" href="#navtabs7"
           data-toggle="tab">Media</a></li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="unfriend" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Unfriend</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Are you sure you want to unfriend?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+        <button type="button" class="btn btn-danger" (click)="unFriend()">YES</button>
+      </div>
     </div>
   </div>
 </div>

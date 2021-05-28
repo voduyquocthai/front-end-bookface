@@ -77,4 +77,15 @@ export class UserHeaderComponent implements OnInit {
       this.friendShip = value;
     });
   }
+
+  openModal() {
+    const container = document.getElementById('friend');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-bs-toggle', 'modal');
+    button.setAttribute('data-bs-target', '#unfriend');
+    container.appendChild(button);
+    button.click();
+  }
 }
