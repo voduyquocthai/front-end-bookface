@@ -66,7 +66,7 @@ export class CreatePostComponent implements OnInit {
       this.postPayload.description += `
     <div class="card-body d-block p-0 mb-3">
   <div class="row ps-2 pe-2">
-    <div class="col-sm-12 p-1"><img src="${this.imgUrl}" class="rounded-3 w-100" alt="image"></div>
+    <div class="col-sm-12 p-1"><img src="${this.imgUrl}" style="width: 100%" class="rounded-3 w-100" alt="image"></div>
   </div>
 </div>`;
     }
