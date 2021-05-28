@@ -52,7 +52,7 @@ export class UsersService {
   }
 
   searchUserByKey(key: string, page: number): Observable<any> {
-    return this.http.get<any>(`${API_URL}/users/search?key=${key}&page=${page}&size=8`);
+    return this.http.get<any>(`${API_URL}/users/search?key=${key}&page=${page}&size=10`);
   }
 
   getAllUserActivated(): Observable<User[]> {
