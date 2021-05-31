@@ -1,0 +1,40 @@
+<div class="main-content right-chat-active">
+
+  <div class="middle-sidebar-bottom">
+    <div class="middle-sidebar-left">
+      <!-- loader wrapper -->
+
+      <!-- loader wrapper -->
+      <div class="row feed-body">
+        <div class="col-xl-8 col-xxl-9 col-lg-8">
+
+          <app-create-post (createdPostEvent)="addCreatedPost($event)"></app-create-post>
+
+
+          <app-post-tile [posts]="posts"></app-post-tile>
+
+        </div>
+        <div class="col-xl-4 col-xxl-3 col-lg-4 ps-md-0" >
+          <div class="card w-100 shadow-xss rounded-xxl border-0 mb-3">
+            <div class="card-body d-flex align-items-center p-4">
+              <h4 class="fw-700 mb-0 font-xssss text-grey-900">Friend Request</h4>
+              <a href="#" class="fw-600 ms-auto font-xssss text-primary">See all</a>
+            </div>
+            <div *ngFor="let friend of listFriends;index as i">
+              <app-friend-request-side-bar (eventEmitter)="getAllFriendsByReceiverUserId()" [friend]="friend"  [ngClass]="{' border-top-xs bor-0' : i == 0}"></app-friend-request-side-bar>
+            </div>
+
+
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

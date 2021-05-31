@@ -1,0 +1,88 @@
+<div id="main-container">
+  <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3" *ngFor="let post of posts?.slice().reverse()">
+    <div class="card-body p-0 d-flex">
+      <figure class="avatar me-3 font-xssss"><img [src]="post?.userAvatar" alt="avatar" class="shadow-sm rounded-circle w45 h45"></figure>
+      <a type="button" class="fw-700 text-grey-900 font-xsss mt-1" (click)="goToUserProfile(post.userId)">{{post?.userName}}<span class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{post.duration}}</span></a>
+      <a *ngIf="post?.userName === currentUser?.username" class="ms-auto" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
+      <div class="dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
+        <div class="card-body p-0 d-flex">
+          <i class="feather-bookmark text-grey-500 me-3 font-lg"></i>
+          <a (click)="openModal('edit', post)" type="button" class="fw-600 text-grey-900 font-xssss mt-0 me-4">Edit Post <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your saved items</span></a>
+        </div>
+        <div class="card-body p-0 d-flex mt-2">
+          <i class="feather-alert-circle text-grey-500 me-3 font-lg"></i>
+          <a (click)="openModal('delete', post)" type="button" class="fw-600 text-grey-900 font-xssss mt-0 me-4">Delete Post<span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body d-block p-0" [innerHTML]="post.description">
+    </div>
+<app-emotion [post]="post"></app-emotion>
+<app-comment [post]="post"></app-comment>
+  </div>
+</div>
+
+
+
+<!--Edit Post Modal-->
+<div class="modal fade show" id="editPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <figure class="avatar me-3"><img [src]="currentUser?.avatar" alt="image" class="shadow-sm rounded-circle w45" ></figure>
+        <h2 class="fw-700 text-grey-900 font-xssss mt-1">{{currentUser?.username}}</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-group" [formGroup]="editPostForm" (ngSubmit)="onEditPost()" id="editPostForm">
+          <select class="form-control" style="margin-top: 10px; margin-bottom: 10px" formControlName="privacy">
+            <option value="" disabled>Select Privacy</option>
+            <option value="0" >Public</option>
+            <option value="1" >Friends Only</option>
+            <option value="2" >Private</option>
+          </select>
+          <ckeditor [editor]="Editor" formControlName="description" >
+          </ckeditor>
+          <img style="width: 100%" [src]="imgUrl">
+          <input type="file" id="file" accept="image/*" (change)="showPreviewAndSubmit($event)">
+          <input type="hidden" formControlName="id">
+          <input type="hidden" formControlName="likeCount">
+          <input type="hidden" formControlName="heartCount">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-post-edit-btn">Close</button>
+        <button type="submit" class="btn btn-primary" style="color: white" form="editPostForm">Update</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--End Edit Post Modal-->
+
+
+<!--Delete Post Modal-->
+
+<div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure want to delete this post ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="close-delete-button">Close</button>
+        <button type="button" class="btn btn-danger" (click)="onDeletePost()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--End Delete Post Modal-->
+
+
