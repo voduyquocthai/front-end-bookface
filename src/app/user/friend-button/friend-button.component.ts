@@ -48,9 +48,9 @@ export class FriendButtonComponent implements OnInit {
   unFriend() {
     this.getFriendShip(this.id);
     this.userService.unFriend(this.friendShip.id).subscribe(value => {
-      console.log(value, 'res');
       this.friendShip = value;
     });
+    document.getElementById('close').click();
   }
 
   accept() {
